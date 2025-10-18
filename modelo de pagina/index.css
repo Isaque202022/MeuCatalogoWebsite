@@ -1,0 +1,62 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+/* topo */
+.botoes-container {
+  background-color: rgb(255, 183, 95);
+  height: 70px;   /* altura fixa */
+  flex-shrink: 0;  /* nunca encolher */
+  display: flex;
+  align-items: center;
+}
+.botoes-container button {
+  padding: 10px;
+}
+
+/* content */
+.content {
+  display: flex;
+  flex: 1;       /* pega o restante */
+  min-height: 0; /* <-- IMPORTANTE p/ evitar bug de rolagem */
+}
+
+/* table container */
+.table-container {
+  background-color: rgb(198, 225, 255);
+  flex: 1;
+  overflow: auto;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+}
+thead th {
+  position: sticky;
+  top: 0;
+  background-color: white;
+}
+th {
+  border-top: 1px solid black;
+}
+td, th{
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  padding: 3px;
+}
+
+/* view */
+.view {
+  min-width: 350px;
+  background-color: green;
+}

@@ -1,0 +1,154 @@
+* {
+  cursor: default;
+  font-family: Roboto;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+input {
+  font-family: Roboto;
+}
+body {
+  padding: 10px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.cabecalho {
+  height: 13vh;
+}
+.table-container, .content {
+  max-height: 70%;
+  height: 87vh;
+  max-height: 87vh;
+}
+.content {
+  display: flex;
+}
+.table-container {
+  overflow-y: auto;
+}
+th, td {
+  border: 1px solid rgb(208, 208, 208);
+  padding: 5px;
+}
+thead {
+  box-sizing: border-box;
+}
+thead th {
+  position: sticky;
+  top: 0; /* distância do topo do container */
+  background-color: rgb(14, 125, 177); /* mesmo fundo para não ficar transparente */
+  color: white;
+  z-index: 1; /* garante que fique acima das linhas */
+}
+table {
+  font-size: 0.78rem;
+  border-collapse: separate; /* evita o "vazamento" visual */
+  border-spacing: 0; /* mantém aparência colada */
+}
+tbody:focus {
+  outline: none;
+}
+label, input {
+  margin: 0;
+  width: fit-content;
+  height: fit-content;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 3px;
+}
+.linha-selecionada{
+  background-color: rgb(14, 125, 177);
+  color: white;
+}
+tbody tr:hover:not(.linha-selecionada) { /* ao passar na linha que nao for a selecionada */
+  background-color: rgba(14, 125, 177, 0.19);
+}
+
+/* caixa de aplicacoes por peça */
+.view-aplicacoes {
+  background-color: aliceblue;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.466);
+  flex: 1;
+  font-family: Roboto;
+  font-size: 0.88rem;
+  padding: 6px;
+  margin-left: 5px;
+}
+.view-aplicacoes h2 {
+  text-align: center;
+}
+.produto-selecionado {
+  margin: 20px 0;
+}
+.aplicacoes div {
+  border-bottom: 1px solid rgb(208, 208, 208);
+  margin-bottom: 6px;
+}
+
+/* LARGURA ESPECIFICA DE CADA COLUNA */
+.threferencia {min-width: 90px; max-width: 90px;}
+.thmarca {min-width: 80px; max-width: 80px;}
+.thdfcaixa {min-width: 176px; max-width: 176px;}
+.thtamanho {min-width: 120px; max-width: 120px;}
+.thcabeca {min-width: 90px; max-width: 90px;}
+.thdiametroponteira {min-width: 167px; max-width: 167px;}
+.throscaponteira {min-width: 110px; max-width: 110px;}
+.throscacaixa {min-width: 125px; max-width: 125px;}
+
+/* BOTOES TOPO DA TELA */
+.botoes-container button {
+  padding: 8px 13px;
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+}
+.botoes-container a {
+  width: 100%;
+  height: 100%;
+}
+/* catalogos online */
+.catalogos-online {
+  display: flex;
+  font-size: 0.95rem;
+  gap: 3px;
+}
+.botoes-container {
+  display: flex;
+  height: 50px;
+  align-items: center;
+}
+.escolher-carro {
+  margin-left: 30px;
+}
+
+/* filtros usados */
+.filtros-usados {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  margin-left: 40px;
+}
+.filtros-usados div {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  font-size: 0.88rem;
+  padding: 4px;
+  border-radius: 3px;
+  font-weight: bold;
+  color: white;
+  background-color: rgb(14, 125, 177);
+}
+.filtros-usados i,
+.filtros-usados p {
+  vertical-align: middle;
+}
+.filtros-usados i {
+  cursor: pointer;
+  font-size: 0.99rem;
+}

@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rolamento</title>
+    <link rel="stylesheet" href="../../caracteristicas em comum/style.css">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="../../icone-pagina.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="../../menu/index.html" class="voltar-menu-ancor">
+        <button class="voltar-menu-btn">
+            Voltar ao menu
+        </button>
+    </a>
+    <button class="limpar-filtros-btn" onclick="limparFiltros()">Limpar Filtros</button>
+    
+    
+
+    <table>
+        <thead>
+            <tr>
+                <th id="roda-rigido-th"><p>RODA/RIGIDO</p></th>
+                <th id="dt-ts-th"><p>DT/TS</p></th>
+                <th id="descricao-th"><p>DESCRICAO</p>  <input id="descricao-inp" autocomplete="off" onkeyup="filtrar()"></th>
+                <th id="referencia-th"><p>REFERENCIA</p>  <input id="referencia-inp" autocomplete="off" onkeyup="filtrar()"></th>
+                <th id="marca-th"><p>MARCA</p> <input id="marca-inp" autocomplete="off" onkeyup="filtrar()"></th>
+                <th id="externo-th"><p>EXTERNO</p></th>
+                <th id="interno-th"><p>INTERNO</p></th>
+                <th id="altura-th"><p>ALTURA</p></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+        
+    </table>
+    
+    <script src="produtos.js"></script>
+    <script>
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]]; // Troca os elementos
+            }
+            return array;
+        }
+        //produtos = shuffleArray(produtos)
+        
+        function ordenar(tipo1,tipo2, filtro1, filtro2, filtro3, lista){
+            // separar linhas por tipo1
+            for (let i=0; i<lista.length; i++){
+                icopy = i+1
+                while (true){if(icopy<lista.length && lista[i][tipo1] != lista[icopy][tipo1]){
+                    icopy +=1
+                }else{break}}
+                if(icopy<lista.length && lista[i+1][tipo1] != lista[icopy][tipo1] ){
+                    let aux = lista[i+1]
+                    lista[i+1] = lista[icopy]
+                    lista[icopy] = aux
+                }
+            }
+            // separar linhas por tipo2
+            for (let i=0; i<lista.length; i++){
+                icopy = i+1
+                while (true){if(icopy<lista.length && lista[i][tipo1] == lista[icopy][tipo1] && lista[i][tipo2] != lista[icopy][tipo2]){
+                    icopy +=1
+                }else{break}}
+                if(icopy<lista.length && lista[i][tipo1] == lista[icopy][tipo1] && lista[i][tipo2] == lista[icopy][tipo2]){
+                    let aux = lista[i+1]
+                    lista[i+1] = lista[icopy]
+                    lista[icopy] = aux
+                }
+            }
+            
+            // numeros no inicio, NaN no final - filtro 1
+            for (let i=0; i<lista.length; i++){
+                let icopy = i
+                let iultimo = lista.length-1
+                
+                while (!parseFloat(lista[icopy][filtro1])){ // enquanto num atual nao for num, troca com o ultimo num
+                    if (iultimo == icopy){break}
+                    else if (parseFloat(lista[iultimo][filtro1]) && lista[icopy][tipo1]==lista[iultimo][tipo1] && lista[icopy][tipo2]==lista[iultimo][tipo2]){
+                        let aux = lista[iultimo]
+                        lista[iultimo] = lista[icopy]
+                        lista[icopy] = aux
+                    } else {
+                        iultimo -= 1
+                    }
+                }
+            } 
+            // ordenar menor para o maior filtro 1
+            for (let i=0; i<lista.length; i++){
+                icopy = i
+                iant = icopy-1
+                let numatu = parseFloat(lista[icopy][filtro1])
+                let numant = iant>=0 ? parseFloat(lista[iant][filtro1]) : undefined
+
+                if (numant && numatu){while (numatu<numant  && lista[icopy][tipo1]==lista[iant][tipo1] && lista[icopy][tipo2]==lista[iant][tipo2]){
+                    let aux = lista[icopy]
+                    lista[icopy] = lista[iant]
+                    lista[iant] = aux
+
+                    icopy -=1
+                    iant=icopy-1
+                    if (icopy==0){break}else{
+                        numatu = parseFloat(lista[icopy][filtro1])
+                        numant = iant>=0 ? parseFloat(lista[iant][filtro1]) : undefined
+                    }
+                }}
+            } 
+            // numeros no inicio, NaN no final - filtro 2
+            for (let i=0; i<lista.length; i++){
+                let ultimoi = lista.length-1
+                let atual = parseFloat(lista[i][filtro2])
+                if (i<ultimoi){
+                    while (true){
+                        if (i<ultimoi && !atual && parseFloat(lista[ultimoi][filtro2]) && lista[i][filtro1] == lista[ultimoi][filtro1] && lista[i][tipo2] == lista[ultimoi][tipo2] && lista[i][tipo1] == lista[ultimoi][tipo1] ){
+                        let aux = lista[i]
+                        lista[i] = lista[ultimoi]
+                        lista[ultimoi] = aux
+                        break
+                        } else if (i==ultimoi){
+                        break
+                        }
+                        else {
+                            ultimoi-=1
+                        }
+                    }
+                }
+            }
+            // ordenar menor para o maior filtro 2
+            for (let i=0; i<lista.length; i++){
+                icopy = i
+                iant = icopy-1
+                let numatu = parseFloat(lista[icopy][filtro2])
+                let numant = iant>=0 && lista[icopy][filtro1] == lista[iant][filtro1]? parseFloat(lista[iant][filtro2]) : undefined
+
+                if (numant && numatu){while (numatu<numant  && lista[icopy][tipo1]==lista[iant][tipo1] && lista[icopy][tipo2]==lista[iant][tipo2]){
+                    let aux = lista[icopy]
+                    lista[icopy] = lista[iant]
+                    lista[iant] = aux
+
+                    icopy -=1
+                    iant=icopy-1
+                    if (icopy==0){break}else{
+                        numatu = parseFloat(lista[icopy][filtro2])
+                        numant = iant>=0 && lista[icopy][filtro1] == lista[iant][filtro1]? parseFloat(lista[iant][filtro2]) : undefined
+                    }
+                }}
+            } 
+            // numeros no inicio, NaN no final - filtro 3
+            for (let i=0; i<lista.length; i++){
+                for(let x=i; x<lista.length; x++){
+                    if (lista[x][filtro2] != lista[i][filtro2]){
+                        iultimo = x-1
+                        break
+                    } 
+                    if (x==lista.length-1){
+                        iultimo = x
+                        break
+                    }
+                }
+                while (!parseFloat(lista[i][filtro3]) && i<iultimo){
+                    if (parseFloat(lista[iultimo][filtro3]) && lista[icopy][tipo1]==lista[iultimo][tipo1] && lista[icopy][tipo2]==lista[iultimo][tipo2]){
+                        aux = lista[iultimo]
+                        lista[iultimo] = lista[i]
+                        lista[i] = aux
+                    } else {
+                        iultimo -=1
+                    }
+                }
+            } 
+            // ordenar menor para o maior filtro 3
+            for (let i=0; i<lista.length; i++){
+                icopy = i
+                iant = icopy-1
+                let numatu = parseFloat(lista[icopy][filtro3])
+                let numant = iant>=0 && lista[icopy][filtro2] == lista[iant][filtro2] && lista[icopy][filtro1] == lista[iant][filtro1] ? parseFloat(lista[iant][filtro3]) : undefined
+
+                if (numant && numatu){while (numatu<numant  && lista[icopy][tipo1]==lista[iant][tipo1] && lista[icopy][tipo2]==lista[iant][tipo2]){
+                    let aux = lista[icopy]
+                    lista[icopy] = lista[iant]
+                    lista[iant] = aux
+
+                    icopy -=1
+                    iant=icopy-1
+                    if (icopy==0){break}else{
+                        numatu = parseFloat(lista[icopy][filtro3])
+                        numant = iant>=0 && lista[icopy][filtro2] == lista[iant][filtro2]? parseFloat(lista[iant][filtro3]) : undefined
+                    }
+                }}
+            }
+
+            return lista
+        }
+
+        produtos = ordenar('dtts','rodaRigido','externo','interno', 'altura',produtos)
+        
+
+        function prepararLinksExternos(index){
+            let linksExternosHtml = ''
+            for (let i=0; i<produtos[index]['linksExternos'].length; i++){
+                linksExternosHtml += `
+                    <a href="${produtos[index]['linksExternos'][i].url}" target="_blank">${produtos[index]['linksExternos'][i].titulo}</a>
+                `
+            }
+            return linksExternosHtml
+        }
+        function alimentarTabela() {
+            const tbody = document.querySelector('tbody')
+            let html = ''
+            for (let i=0; i<produtos.length; i++){
+                html += `
+                <tr>
+                    <td class='roda-rigido'>${produtos[i].rodaRigido}</td>
+                    <td class='dt-ts'>${produtos[i].dtts}</td>
+                    <td class='descricao'>${produtos[i].descricao}</td>
+                    <td class='referencia'><p>${produtos[i].referencia}</p>
+                        <div class='botao-copiar'>
+                            <i class="fa-regular fa-copy" onclick='copiarReferencia(this)'></i>
+                        </div>
+                    </td>   
+                    <td class='marca'>${produtos[i].marca}</td>
+                    <td class='externo'>${produtos[i].externo}</td>
+                    <td class='interno'>${produtos[i].interno}</td>
+                    <td class='altura'>${produtos[i].altura}</td>
+                </tr>
+                `
+            }
+            tbody.innerHTML = html
+        }
+        alimentarTabela()
+        console.log(`//mostrar todas as marcas disponiveis
+            let marcas = document.querySelectorAll('.marca')
+            let list = []
+            for (let i=0; i<marcas.length; i++){
+                if (!list.includes(marcas[i].innerText)){
+                    list.push(marcas[i].innerText)
+                }
+            }
+            list`)
+
+        function organizarListaSelect(lista,p){
+            let list = []
+            for (let i=0; i<lista.length; i++){
+                let ultimoi = lista.length-1
+                if (!parseFloat(lista[i][p])){
+                    while (true){
+                    if (i<ultimoi && parseFloat(lista[ultimoi][p])){
+                        let aux = lista[i]
+                        lista[i] = lista[ultimoi]
+                        lista[ultimoi] = aux
+                        break
+                    } 
+                    else if (i==ultimoi){break}
+                    else {
+                        ultimoi -=1
+                    }
+                    }
+                }
+            }
+            for (let i=0; i<lista.length; i++){
+                let icopy = i
+                let anti = icopy-1
+                if(!parseFloat(lista[icopy][p])){break}
+                while (anti>=0 && parseFloat(lista[icopy][p])<parseFloat(lista[anti][p])){
+                    aux = lista[icopy]
+                    lista[icopy] = lista[anti]
+                    lista[anti] = aux
+                    icopy -=1
+                    anti = icopy-1
+                    
+                }
+            }
+            for (let i=0; i<lista.length; i++){
+                if (!list.includes(lista[i][p])){
+                    list.push(lista[i][p])
+                }
+            }
+            return list
+        }
+        function gerarSelect(className,idElement,propriedade){
+            const elementos = document.querySelectorAll('.'+className)
+            let list = []
+            for (let i=0; i<elementos.length; i++){
+                if (!list.includes(elementos[i].innerText)){
+                    list.push(elementos[i].innerText)
+                }
+            }
+            if (propriedade){list = organizarListaSelect(produtos, propriedade)}
+            
+            const e = document.querySelector('#'+idElement)
+            let html = ''
+            if (propriedade){ html = '<option value="">-mm-</option>'}
+            else { html = '<option value="">--selecione--</option>'}
+
+
+            for (let nomeIndex in list) {
+                if (list[nomeIndex] != ''){
+                    html += `<option value="${list[nomeIndex]}">${list[nomeIndex]}</option>`
+                }
+            }
+
+            e.innerHTML += `<select id='${idElement}-filtro' onchange='filtrar()'>${html}</select>`
+        }
+        gerarSelect(className='roda-rigido', idElement='roda-rigido-th',propriedade='')
+        gerarSelect(className='dt-ts', idElement='dt-ts-th', propriedade='')
+        gerarSelect(className='externo', idElement='externo-th', propriedade='externo')
+        gerarSelect(className='interno', idElement='interno-th', propriedade='interno')
+        gerarSelect(className='altura', idElement='altura-th', propriedade='altura')
+        
+        
+
+        function filtrar(){
+            let intersecaoFiltros = []
+            const inputs = document.querySelectorAll('input')
+            for (let i=0; i<inputs.length; i++){
+                if(inputs[i].id == 'descricao-inp'){
+                    const input = document.querySelector('#descricao-inp')
+                    let list = []
+                    const elementos = document.querySelectorAll('.descricao')
+                    for (let x=0; x<elementos.length; x++){
+                        if (elementos[x].innerText.includes(input.value.toUpperCase())){
+                            list.push(x)
+                        }
+                    }
+                    intersecaoFiltros.push(list)
+                }
+                if(inputs[i].id == 'referencia-inp'){
+                    const input = document.querySelector('#referencia-inp')
+                    let list = []
+                    const elementos = document.querySelectorAll('.referencia')
+                    for (let x=0; x<elementos.length; x++){
+                        if (elementos[x].innerText.includes(input.value.toUpperCase())){
+                            list.push(x)
+                        }
+                    }
+                    intersecaoFiltros.push(list)
+                }
+                if(inputs[i].id == 'marca-inp'){
+                    const input = document.querySelector('#marca-inp')
+                    let list = []
+                    const elementos = document.querySelectorAll('.marca')
+                    for (let x=0; x<elementos.length; x++){
+                        if (elementos[x].innerText.includes(input.value.toUpperCase())){
+                            list.push(x)
+                        }
+                    }
+                    intersecaoFiltros.push(list)
+                }
+            
+            }
+            
+            const selects = document.querySelectorAll('select')
+            for (let i=0; i<selects.length; i++){
+                if(selects[i].id == 'roda-rigido-th-filtro'){
+                    const select = document.querySelector('#roda-rigido-th-filtro')
+                    let list = []
+                    const elementos = document.querySelectorAll('.roda-rigido')
+                    for (let x=0; x<elementos.length; x++){
+                        if (elementos[x].innerText == select.value && select.value != ''){
+                            list.push(x)
+                        }
+                    }
+                    if (select.value != ''){intersecaoFiltros.push(list)}
+                }
+                if(selects[i].id == 'dt-ts-th-filtro'){
+                    const select = document.querySelector('#dt-ts-th-filtro')
+                    let list = []
+                    const elementos = document.querySelectorAll('.dt-ts')
+                    for (let x=0; x<elementos.length; x++){
+                        if (elementos[x].innerText == select.value && select.value != ''){
+                            list.push(x)
+                        }
+                    }
+                    if (select.value != ''){intersecaoFiltros.push(list)}
+                }
+                if(selects[i].id == 'externo-th-filtro'){
+                    const select = document.querySelector('#externo-th-filtro')
+                    let list = []
+                    const elementos = document.querySelectorAll('.externo')
+                    for (let x=0; x<elementos.length; x++){
+                        if (elementos[x].innerText == select.value && select.value != ''){
+                            list.push(x)
+                        }
+                    }
+                    if (select.value != ''){intersecaoFiltros.push(list)}
+                }
+                if(selects[i].id == 'interno-th-filtro'){
+                    const select = document.querySelector('#interno-th-filtro')
+                    let list = []
+                    const elementos = document.querySelectorAll('.interno')
+                    for (let x=0; x<elementos.length; x++){
+                        if (elementos[x].innerText == select.value && select.value != ''){
+                            list.push(x)
+                        }
+                    }
+                    if (select.value != ''){intersecaoFiltros.push(list)}
+                }
+                if(selects[i].id == 'altura-th-filtro'){
+                    const select = document.querySelector('#altura-th-filtro')
+                    let list = []
+                    const elementos = document.querySelectorAll('.altura')
+                    for (let x=0; x<elementos.length; x++){
+                        if (elementos[x].innerText == select.value && select.value != ''){
+                            list.push(x)
+                        }
+                    }
+                    if (select.value != ''){intersecaoFiltros.push(list)}
+                }
+            
+            }
+            
+
+            intersecaoFiltros = numerosEmComum(intersecaoFiltros)
+            //console.log(intersecaoFiltros)
+
+            // esconder/mostrar linhas
+            const linhas = document.querySelector('tbody').children
+            let auxiliar = 0
+            for (let i=0; i<linhas.length; i++){
+                if (intersecaoFiltros[auxiliar] == i){
+                    linhas[i].classList.remove('esconder')
+                    auxiliar += 1
+                } else {
+                    linhas[i].classList.add('esconder')
+                }
+            }
+            // colorir linhas
+            let linhasColoridas = []
+            for (let i=0; i<linhas.length; i++){
+                if (!linhas[i].classList.contains('esconder')){
+                    if (!linhasColoridas.includes(linhas[i])){
+                        linhasColoridas.push(linhas[i])
+                    }
+                }
+                
+            }
+            let color = ['#FEFAE0','#CCD5AE']
+            let z = 0
+            for (let x=0; x<linhasColoridas.length; x++){
+                linhasColoridas[x].style.backgroundColor = color[z]
+                let atual1 = linhasColoridas[x].querySelector('.roda-rigido').innerText
+                let prox1 = x<linhasColoridas.length-1 ?  linhasColoridas[x+1].querySelector('.roda-rigido').innerText : 'undefined'
+                let atual2 = linhasColoridas[x].querySelector('.dt-ts').innerText
+                let prox2 = x<linhasColoridas.length-1 ?  linhasColoridas[x+1].querySelector('.dt-ts').innerText : 'undefined'
+
+                if(atual1 != prox1 || atual2 != prox2 && x<linhasColoridas.length-1){
+                    z +=1
+                    if (z==2){
+                        z=0
+                    }
+                }
+            }
+
+            
+        }
+        filtrar()
+        function numerosEmComum(list){
+            // 'list' é uma lista que contem outras listas de numeros
+            // ache os numeros que sao comuns em todas as listas 
+            // faça um return desses numeros 
+            if (list.length === 0) return []; // Retorna vazio se não houver listas
+                // Começa com os números da primeira lista
+            return list.reduce((common, currentList) => {
+                // Filtra os números que estão presentes na lista atual
+                return common.filter(num => currentList.includes(num));
+            });
+            
+        }
+        function limparFiltros() {
+            const inputs = document.querySelectorAll('input')
+            const selects = document.querySelectorAll('select')
+            for (let i=0; i<inputs.length; i++){
+                inputs[i].value = ''
+            }
+            for (let i=0; i<selects.length; i++){
+                selects[i].value = ''
+            }
+            
+            const linhas = document.querySelector('tbody').children
+            for (let i=0; i<linhas.length; i++){
+                linhas[i].classList.remove('esconder')
+            }
+            filtrar()
+        }
+    
+        // botao copiar referencia
+        const linhas = document.querySelector('tbody').children
+        for (let x=0; x<linhas.length; x++){
+            const pLinha = linhas[x]
+            pLinha.addEventListener('mouseenter', function(){
+                pLinha.querySelector('.botao-copiar').classList.add('mostrar-botao-copiar')
+            })
+            pLinha.addEventListener('mouseleave', function(){
+                pLinha.querySelector('.botao-copiar').classList.remove('mostrar-botao-copiar')
+            })
+        }
+        
+        function copiarReferencia(iconElement){
+            let texto = iconElement.parentElement.parentElement.innerText
+            if (texto.endsWith(" ")) {
+                texto = texto.slice(0, -1); // Remove o último caractere
+            }
+            let input = document.createElement('input')
+            input.value = texto
+            document.body.appendChild(input)    
+            input.select()
+            document.execCommand("copy");
+            document.body.removeChild(input);      
+        }
+        let itensShop = [
+        {codigo: 707, descricao: 'KIT ROLAMENTO TS CORSA/CELTA/KADETT ALK4544', quantidade: 5},
+{codigo: 3435, descricao: 'KIT ROLAMENTO TS CORSA/CELTA/KADETT MTF2271', quantidade: 6},
+{codigo: 1207, descricao: 'KIT ROLAMENTO TS CORSA/CELTA/KADETT R15307S', quantidade: 4},
+{codigo: 599, descricao: 'KIT ROLAMENTO TS CORSA/CELTA/KADETT VKBA4544A', quantidade: 3},
+{codigo: 3142, descricao: 'KIT ROLAMENTO TS GOL/SAVEIRO R15413S', quantidade: 0},
+{codigo: 3714, descricao: 'KIT ROLAMENTO TS GOL/SAVEIRO VK0004TV', quantidade: 0},
+{codigo: 783, descricao: 'KIT ROLAMENTO TS GOL/SAVEIRO VKBA4529A', quantidade: 0},
+{codigo: 2838, descricao: 'KIT ROLAMENTO TS KA/FIESTA/ESCORT 93/... 94533', quantidade: 0},
+{codigo: 6362, descricao: 'KIT ROLAMENTO TS KA/FIESTA/ESCORT 93/... IRB400', quantidade: 0},
+{codigo: 2637, descricao: 'KIT ROLAMENTO TS KA/FIESTA/ESCORT 93/... VKBA4533', quantidade: 2},
+{codigo: 5741, descricao: 'KIT ROLAMENTO TS SPRINTER/BLAZER/S10 U399/360', quantidade: 2},
+{codigo: 5538, descricao: 'KIT ROLAMENTO TS SPRINTER/BLAZER/S10 U497/460L', quantidade: 2},
+{codigo: 1508, descricao: 'ROLAMENTO RODA TS DUSTER/CAPTUR/207 FC40696S12R', quantidade: 2},
+{codigo: 3025, descricao: 'ROLAMENTO RODA TS LOGAN/SANDERO 14/ FC41795S01R', quantidade: 4},
+{codigo: 4320, descricao: 'ROLAMENTO TS CLIO/LOGAN/C3/206 99/12 LVB445539', quantidade: 0},
+{codigo: 6748, descricao: 'ROLAMENTO TS CLIO/LOGAN/C3/206 ALR 40570E', quantidade: 3},
+{codigo: 4416, descricao: 'ROLAMENTO TS CORSA 02/... FC40650S01R', quantidade: 0},
+{codigo: 2826, descricao: 'ROLAMENTO TS CORSA/MERIVA 02/... ALR40650', quantidade: 3},
+{codigo: 1206, descricao: 'ROLAMENTO TS EXT KOMBI 78/14 LVB45226', quantidade: 2},
+{codigo: 1749, descricao: 'ROLAMENTO TS FIESTA/ECOSPORT/FOCUS ALR1206', quantidade: 0},
+{codigo: 7125, descricao: 'ROLAMENTO TS FIESTA/ECOSPORT/FOCUS IR18206', quantidade: 1},
+{codigo: 2224, descricao: 'ROLAMENTO TS FIESTA/ECOSPORT/FOCUS LVB0095', quantidade: 0},
+
+        ]
+        for (let x=0; x<produtos.length; x++){
+            if (produtos[x]['externo'] == '' && produtos[x]['dtts'] == 'TS' ){
+
+                for (let i=0; i<itensShop.length; i++){
+                    if (itensShop[i]['descricao'].includes(produtos[x]['referencia']) && itensShop[i]['quantidade']>0){
+                        console.log(itensShop[i]['codigo'])
+                    }
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Axial</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- font roboto -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <!-- font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+</head>
+<body>
+  <div class="cabecalho">
+    <div class="botoes-container">
+      <div class="botoes">
+        <a href="../menu/index.html" style="text-decoration: none;">
+          <button>Voltar ao menu</button>
+        </a></button>
+        <button onclick=location.reload()>Limpar filtros</button>
+      </div>
+
+      <div class="filtros-usados"></div>
+    </div>
+
+    <div class="catalogos-online">
+      Catálogos online: <a href="https://catalogo.viemar.com.br/" target="_blank">Viemar</a>
+      <a href="https://catalogo.perfectautomotive.com/new/catalogo_ideia.asp" target="_blank">Perfect</a>
+      <a href="https://www.catalogonakata.com.br/" target="_blank">Nakata</a>
+      
+      <a href="https://www.okpecas.com.br/categoria/autopecas-suspensao-articulador-axial/5286?ordenar=alfabetica&idMarca=2054" target="_blank">Bortec</a>
+
+      <div class="escolher-carro">
+        <label for="select-marca-carro">Montadora</label>
+        <select id="select-marca-carro"></select>
+        <label for="select-modelo-carro">Modelo</label>
+        <select id="select-modelo-carro"></select>
+      </div>
+    </div>                                                                                                                                                                                                                                                 
+  </div>
+
+  <div class="content">
+    <div class="table-container">
+      <table>
+        <thead>
+           <!-- os -names- dos selects devem ser os mesmos nomes das chaves dos produtos  -->
+          <th class="threferencia">
+            <label>referencia</label>
+            <input class="input" id="inputReferencia" autocomplete="off" name="referencia">
+          </th>
+           <th class="thmarca">
+            <input type="radio" id="radio-marca" name="ordem-crescente">
+            <label for="radio-marca">marca</label>
+            <select class="input" id="selectMarca" name="marca"><option value=""></option></select>
+          </th>
+    
+          <!-- <th class="thdescricao">
+            <label>aplicacao</label>
+            <input class="input" autocomplete="off" id="inputDescricao">
+          </th> -->
+          <th class="thtamanho">
+            <input type="radio" id="radio-tamanho" name="ordem-crescente" checked>
+            <label for="radio-tamanho">tamanho (cm)</label>
+            <input class="input" autocomplete="off" style="visibility: hidden;">
+          </th>
+    
+          <th class="thcabeca">
+            <label>cabeça</label>
+            <select class="input" id="selectCabeca" name="cabeca"><option value=""></option></select>
+          </th>
+    
+          <th class="thdiametroponteira">
+            <input type="radio" id="radio-diametro-ponteira" name="ordem-crescente">
+            <label for="radio-diametro-ponteira">diametro ponteira (mm)</label>
+            <select class="input" id="selectDiametroPonteira" name="diametroPonteira"><option value=""></option></select>
+          </th>
+    
+          <th class="throscaponteira">
+            <label>rosca ponteira</label>
+            <select class="input" id="selectRoscaPonteira" name="roscaPonteira"><option value=""></option></select>
+          </th>
+    
+          <th class="thdfcaixa">
+            <input type="radio" id="radio-dfcaixa" name="ordem-crescente">
+            <label for="radio-dfcaixa">diametro/furo caixa (mm)</label>
+            <select class="input" id="selectDiametroFuroCaixa" name="diametroFuroCaixa"><option value=""></option></select>
+          </th>
+          <th class="throscacaixa">
+            <label>rosca caixa</label>
+            <select class="input" id="selectRoscaCaixa" name="roscaCaixa"><option value=""></option></select>
+          </th>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div class="view-aplicacoes">
+      <h2>APLICAÇÕES</h2>
+      <div class="produto-selecionado">Produto selecionado...</div>
+      <!-- <div id="entrada-aplicacoes">
+        <label for="aplicacao-input">Aplicação</label>
+        <input id="aplicacao-input" autocomplete="off">
+      </div> -->
+      <div class="aplicacoes">Aqui vai uma lista de aplicacoes...</div>
+    </div>
+  </div>
+
+  <script src="produtos.js"></script>
+  <script src="lista-marca-modelos.js"></script>
+  <script>
+    const filtros = {}
+    // procurar pelo carro
+    let listaTodosModelosJuntos = []
+    const selectMontadora = document.querySelector('#select-marca-carro')
+    selectMontadora.innerHTML = '<option></option>'
+    const selectModelo = document.querySelector('#select-modelo-carro')
+    selectModelo.innerHTML = '<option></option>'
+
+    carros.sort((a,b) => a.marca.localeCompare(b.marca))
+    // Preencher select montadora
+    carros.forEach((carro, index) => {
+      const option = document.createElement('option')
+      option.textContent = carro.marca.toUpperCase()
+      option.value = `${carro.marca}|${index}`
+      selectMontadora.appendChild(option)
+
+      carro.modelos.forEach(modelo => {listaTodosModelosJuntos.push(modelo)})
+      
+    })
+    
+    function carregarModelosCarro(modelos){
+      selectModelo.innerHTML = '<option></option>'
+      modelos.sort()
+      modelos.forEach(modelo => {
+        const opcaoModelo = document.createElement('option')
+        opcaoModelo.value = modelo
+        opcaoModelo.textContent = modelo.toUpperCase()
+        selectModelo.appendChild(opcaoModelo)
+      })
+    }
+    carregarModelosCarro(listaTodosModelosJuntos)
+    
+    filtros.aplicacoes = []
+    selectMontadora.addEventListener('change', () => {
+      if (selectMontadora.value == '') {
+        let i_para_excluir = filtros.aplicacoes.indexOf('montadora')
+        if (i_para_excluir >=0) filtros.aplicacoes.splice(i_para_excluir, 1)
+        if (filtros.aplicacoes.length == 0)  filtros.aplicacoes = []
+
+        const salvar_modelo_selecionado = selectModelo.value
+        carregarModelosCarro(listaTodosModelosJuntos)
+        if (filtros.aplicacoes.includes('modelo')){
+          selectModelo.value = salvar_modelo_selecionado
+        }
+      }
+      else {
+        // limpar filtro de modelo ao selecionar a montadora
+        let i_para_excluir = filtros.aplicacoes.indexOf('modelo')
+        if (i_para_excluir >=0) filtros.aplicacoes.splice(i_para_excluir, 1)
+
+        const index = selectMontadora.value.split('|')[1]
+        carregarModelosCarro(carros[index].modelos)
+        if (!filtros.aplicacoes.includes('montadora')){
+          filtros.aplicacoes.push('montadora')
+        }
+      }
+      filtrarLista()
+      carregarTabela()
+      focarNaPrimeiraLinha()
+    })
+
+    selectModelo.addEventListener('change', () => {
+      if (selectModelo.value == ''){
+        let i_para_excluir = filtros.aplicacoes.indexOf('modelo')
+        if (i_para_excluir >=0) filtros.aplicacoes.splice(i_para_excluir, 1)
+        if (filtros.aplicacoes.length == 0)  filtros.aplicacoes = []
+      }
+      else {
+        if (!filtros.aplicacoes.includes('modelo')){
+          filtros.aplicacoes.push('modelo')
+        }
+      }
+      filtrarLista()
+      carregarTabela()
+      focarNaPrimeiraLinha()
+
+    })
+    
+
+    // VISIBLE É PARA DEFINIR SE O PRODUTO SERÁ 
+    // MOSTRADO DE ACORDO COM OS FILTROS APLICADOS
+    // INICIA TODOS COM TRUE
+    produtos.forEach(produto => {
+      produto.visible = true
+    })
+    // COMECA FILTRADO PELO COMPRIMENTO DO AXIAL
+    produtos.sort((a,b) => {
+      if (a.tamanho !== b.tamanho){
+        return a.tamanho - b.tamanho
+      } else {
+        return a.diametroPonteira - b.diametroPonteira
+      }
+    })
+    const tbody = document.querySelector('tbody')
+
+    
+    window.onload = function(){
+      focarNaPrimeiraLinha()
+    }
+    /*function focarNaPrimeiraLinha() {
+      /* ESSA MERDA TEM HORA QUE FUNCIONA TEM HORA QUE NAO
+      const container = document.querySelector('.table-container')
+      container.scrollTop = 0 
+      
+      selecionarLinha(tbody.querySelectorAll('tr')[0])
+    }*/
+
+    function focarNaPrimeiraLinha() {
+      const linhas = tbody.querySelectorAll('tr');
+      if (linhas.length === 0) return;
+
+      const primeiraLinha = linhas[0];
+      selecionarLinha(primeiraLinha);
+
+      const container = primeiraLinha.closest('.table-container');
+      const thead = container.querySelector('thead');
+
+      // Ajusta scroll para que a primeira linha fique logo abaixo do thead sticky
+      container.scrollTop = primeiraLinha.offsetTop - thead.offsetHeight;
+    }
+
+    function carregarTabela(){
+      tbody.innerHTML = ''
+      produtos.forEach((produto, index) => {
+        if (!produto.visible){return}
+
+        const linha = document.createElement('tr')
+        for (const [chave, valor] of Object.entries(produto)){
+          if (typeof(valor) == "boolean"){continue}
+          if (chave === 'descricao' || chave === 'aplicacoes'){continue}
+          const td = document.createElement('td')
+          td.textContent = valor
+          linha.appendChild(td)
+          linha.id = index
+        }
+        tbody.appendChild(linha)
+      });
+      aoClicarNaLinha() // evento de clicar nas linhas
+      
+    }
+    carregarTabela()
+    focarNaPrimeiraLinha()
+    
+    
+
+    // ao clicar na linha ela é selecionada 
+
+    // estou pegando as linhas aqui porque no console 
+    // diz que as linhas nao foram criadas ainda para 
+    // ser usada nessa funcao
+    function removerCorLinha(){
+      linhas.forEach(linha => {
+        linha.classList.remove('linha-selecionada')
+      })
+    }
+    
+
+    function preencherCampoAplicacao(id){
+      const produtoView = document.querySelector('.produto-selecionado')
+      const listaAplicacoes = document.querySelector('.aplicacoes')
+
+      produtoView.innerHTML = `${produtos[id].marca} ${produtos[id].referencia}`
+
+      let html = ''
+      produtos[id].aplicacoes.forEach(aplicacao => {
+        html += `<div>
+          ${aplicacao.montadora.toUpperCase()} 
+          ${aplicacao.modelo.toUpperCase()} 
+          ${aplicacao.complemento.toUpperCase()}
+          </div>`
+      })
+      listaAplicacoes.innerHTML = html
+    }
+    
+    function selecionarLinha(linha){
+      removerCorLinha();
+      linha.classList.add('linha-selecionada');
+      preencherCampoAplicacao(Number(linha.id))
+      // foca no tbody para ativar o listener de teclado
+      tbody.focus();
+    }
+
+    tbody.setAttribute('tabindex', '0'); // torna focável
+
+    // sempre que clicar em uma linha, seleciona e dá foco no tbody
+    function aoClicarNaLinha(){
+      linhas = tbody.querySelectorAll('tr');
+      linhas.forEach(linha => {
+        linha.addEventListener('click', () => {
+          selecionarLinha(linha)
+        });
+      });
+    }
+    aoClicarNaLinha();
+
+    // agora o keydown no tbody funciona
+    tbody.addEventListener('keydown', (e) => {
+      //console.log('Tecla pressionada:', e.key);
+      if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+        e.preventDefault(); // impede scroll automático
+      }
+
+      
+      if (e.key === 'ArrowUp'){
+        const linhaAnterior = document.querySelector('.linha-selecionada').previousElementSibling
+        if (linhaAnterior){
+          selecionarLinha(linhaAnterior)
+          
+          // calculo para verificar se linha está visivel
+          const container = linhaAnterior.closest('.table-container')
+          const thead = document.querySelector('thead')
+
+          const nivelVisivel = container.getBoundingClientRect().top + thead.offsetHeight
+          const nivelLinha = linhaAnterior.getBoundingClientRect().top
+
+          if (nivelLinha < nivelVisivel){
+            linhaAnterior.scrollIntoView({block: 'start'})
+            // altura em pixels do thead para a linha ficar visivel
+            container.scrollTop -= thead.offsetHeight  
+          }
+        }
+      }
+      if (e.key === 'ArrowDown'){
+        const linhaPosterior = document.querySelector('.linha-selecionada').nextElementSibling
+        if (linhaPosterior){
+          selecionarLinha(linhaPosterior)
+          
+          // calculo para verificar se linha está visivel
+          const container = linhaPosterior.closest('.table-container')
+
+          const nivelLimite = container.getBoundingClientRect().bottom
+          const nivelLinha = linhaPosterior.getBoundingClientRect().bottom
+
+          if (nivelLinha > nivelLimite){
+            linhaPosterior.scrollIntoView({block: 'end'})
+          }
+          
+        }
+      }
+    });
+    
+    // Alimentar opcoes dos selects:
+
+    function criarSelectDiametroPonteira(){
+      const select = document.querySelector('#selectDiametroPonteira')
+      let opcoes = []
+      produtos.forEach(produto => {
+        if (!opcoes.includes(produto.diametroPonteira)){
+          opcoes.push(produto.diametroPonteira)
+        }
+      })
+      
+      opcoes.sort((a,b) => a - b)
+      opcoes.forEach(opcao => {
+        const option = document.createElement('option')
+        option.value = typeof(opcao)=='string' ? opcao.toUpperCase() : opcao
+        option.textContent = typeof(opcao)=='string' ? opcao.toUpperCase() : opcao
+        select.appendChild(option)
+      })
+    }
+    criarSelectDiametroPonteira()
+
+    function criarSelectCabeca(){
+      const select = document.querySelector('#selectCabeca')
+      let opcoes = []
+      produtos.forEach(produto => {
+        if (!opcoes.includes(produto.cabeca)){
+          opcoes.push(produto.cabeca)
+        }
+      })
+      //opcoes.sort((a,b) => a.localeCompare(b))
+      opcoes.forEach(opcao => {
+        const option = document.createElement('option')
+        option.value = typeof(opcao)=='string' ? opcao.toUpperCase() : opcao
+        option.textContent = typeof(opcao)=='string' ? opcao.toUpperCase() : opcao
+        select.appendChild(option)
+      })
+    }
+    criarSelectCabeca()
+
+    function criarSelectRoscaPonteira(){
+      const select = document.querySelector('#selectRoscaPonteira')
+      let opcoes = []
+      produtos.forEach(produto => {
+        if (!opcoes.includes(produto.roscaPonteira)){
+          opcoes.push(produto.roscaPonteira)
+        }
+      })
+      //opcoes.sort((a,b) => a.localeCompare(b))
+      opcoes.forEach(opcao => {
+        const option = document.createElement('option')
+        option.value = typeof(opcao)=='string' ? opcao.toUpperCase() : opcao
+        option.textContent = typeof(opcao)=='string' ? opcao.toUpperCase() : opcao
+        select.appendChild(option)
+      })
+    }
+    criarSelectRoscaPonteira()
+
+    function criarSelectDiametroFuroCaixa(){
+      const select = document.querySelector('#selectDiametroFuroCaixa')
+      let opcoes = []
+      produtos.forEach(produto => {
+        if (!opcoes.includes(produto.diametroFuroCaixa)){
+          opcoes.push(produto.diametroFuroCaixa)
+        }
+      })
+      opcoes.sort((a,b) => a - b)
+      opcoes.forEach(opcao => {
+        const option = document.createElement('option')
+        option.value = typeof(opcao)=='string' ? opcao.toUpperCase() : opcao
+        option.textContent = typeof(opcao)=='string' ? opcao.toUpperCase() : opcao
+        select.appendChild(option)
+      })
+    }
+    criarSelectDiametroFuroCaixa()
+
+    function criarSelectMarca(){
+      const select = document.querySelector('#selectMarca')
+      let opcoes = []
+      produtos.forEach(produto => {
+        if (!opcoes.includes(produto.marca)){
+          opcoes.push(produto.marca)
+        }
+      })
+      opcoes.sort((a,b) => a.localeCompare(b))
+      opcoes.forEach(opcao => {
+        const option = document.createElement('option')
+        option.value = typeof(opcao)=='string' ? opcao.toUpperCase() : opcao
+        option.textContent = typeof(opcao)=='string' ? opcao.toUpperCase() : opcao
+        select.appendChild(option)
+      })
+    }
+    criarSelectMarca()
+
+    function criarSelectRoscaCaixa(){
+      const select = document.querySelector('#selectRoscaCaixa')
+      let opcoes = []
+      produtos.forEach(produto => {
+        if (!opcoes.includes(produto.roscaCaixa)){
+          opcoes.push(produto.roscaCaixa)
+        }
+      })
+      opcoes.sort((a,b) => a.localeCompare(b))
+      opcoes.forEach(opcao => {
+        const option = document.createElement('option')
+        option.value = typeof(opcao)=='string' ? opcao.toUpperCase() : opcao
+        option.textContent = typeof(opcao)=='string' ? opcao.toUpperCase() : opcao
+        select.appendChild(option)
+      })
+    }
+    criarSelectRoscaCaixa()
+
+    function excluirFiltro(filtro){
+      const elemento = document.querySelector('.filtros-usados').querySelector(`.${filtro}`)
+      
+      if (filtro == 'referencia'){
+        const inputReferencia = document.querySelector('thead').querySelector(`[name="referencia"]`)
+        inputReferencia.value = ''
+      }
+
+      delete filtros[filtro]
+      elemento.remove()
+      filtrarLista()
+      carregarTabela()
+      focarNaPrimeiraLinha()
+    }
+
+    function addBotaoFiltrosUsados(filtro){
+      const container = document.querySelector('.filtros-usados')
+      const div = document.createElement('div')
+      const p = document.createElement('p')
+      const texto =  document.querySelector('thead').querySelector(`[name="${filtro}"]`).previousElementSibling.innerText
+      const i = document.createElement('i')
+      p.textContent = texto
+      i.classList.add('fa-regular')
+      i.classList.add('fa-circle-xmark')
+      div.appendChild(p)
+      div.appendChild(i)
+      div.classList.add(filtro)
+
+      const inputReferencia = document.querySelector('thead').querySelector(`[name="referencia"]`)
+      if (inputReferencia.value == '' && filtro == 'referencia'){excluirFiltro('referencia')}
+      
+
+      if (container.querySelectorAll(`.${filtro}`).length==0){
+        container.appendChild(div)
+      }
+      // se referencia esta nos filtros e se filtros.length>0 : nao faz nada
+      i.addEventListener('click', ()=>{
+        excluirFiltro(filtro)
+      })
+    }
+
+    function corrigirOpcoesSelects(){
+      document.querySelector('thead').querySelectorAll('select').forEach(select => {
+        select.innerHTML = `<option value=""></option>`
+        let opcoes = []
+        const chave = select.name
+
+        produtos.forEach(produto => {
+          if (produto.visible){
+            if (!opcoes.includes(produto[chave])) opcoes.push(produto[chave])
+          }
+        })
+
+        if (typeof(opcoes[0]) == 'string'){
+          opcoes.sort((a,b) => a.localeCompare(b))
+        } else {
+          opcoes.sort((a,b) => a - b)
+        }
+
+        opcoes.forEach(opcao => {
+          const option = document.createElement('option')
+          option.value = typeof(opcao)=='string' ? opcao.toUpperCase() : opcao
+          option.textContent = typeof(opcao)=='string' ? opcao.toUpperCase() : opcao
+          select.appendChild(option)
+        })
+
+        select.value = filtros[select.name]
+      })
+    }
+
+    function filtrarLista(){
+      
+      produtos.forEach(function(produto) {
+        produto.visible = true
+        Object.keys(filtros).forEach(filtro => {
+          if (filtro == "referencia" || filtro == "descricao"){
+            if (!produto[filtro].toLowerCase().includes(filtros[filtro].toLowerCase())){
+              produto.visible = false
+              return
+            }
+          }
+          
+          else if (filtro == 'aplicacoes'){
+            if (filtros.aplicacoes.length == 0) return
+            console.log(filtro)
+            // se tiver só de montadora, procura só pela montadora
+            // Se tiver pelo menos filtro de modelo, procura só pelo modelo
+
+            if (filtros[filtro].includes('montadora') && filtros[filtro].length == 1){
+              produto.visible = false
+              produto[filtro].forEach(aplicacao => {
+                aplicacao = aplicacao.montadora.replaceAll(' ','').toLowerCase()
+                const montadora = selectMontadora.value.split('|')[0].replaceAll(' ','').toLowerCase()
+                console.log(aplicacao)
+                console.log(montadora)
+                if (aplicacao == montadora){
+                  produto.visible = true
+                  return
+                }
+              })
+            }
+            else if (filtros[filtro].includes('modelo')){
+              produto.visible = false
+              produto.aplicacoes.forEach(aplicacao => {
+                aplicacao = aplicacao.modelo.replaceAll(' ','').toLowerCase()
+                const modelo = selectModelo.value.replaceAll(' ','').toLowerCase()
+                if (aplicacao == modelo ){
+                  produto.visible = true
+                  return
+                }
+              });
+            }
+
+            
+            
+            
+            
+          }
+          else if (produto[filtro] != filtros[filtro]){
+            produto.visible = false
+          }
+
+          //filtro!='tamanho'&&filtro!='visible' ? addBotaoFiltrosUsados(filtro) : null
+        })
+      })
+      corrigirOpcoesSelects()
+    }
+    
+    filtrarLista()
+
+    // Listeners dos selects para quando mudarem
+    // O nome das chaves do objeto "filtros" devem ser as mesmas do objeto "produtos"
+    document.querySelector('#selectDiametroPonteira').addEventListener('change', (event) => {
+      filtros.diametroPonteira = Number(event.target.value)
+      if (event.target.value == ""){
+        delete filtros.diametroPonteira;
+        excluirFiltro('diametroPonteira')
+      } else {
+        addBotaoFiltrosUsados('diametroPonteira')
+      }
+      filtrarLista()
+      carregarTabela()
+      focarNaPrimeiraLinha()
+    })
+    document.querySelector('#selectCabeca').addEventListener('change', (event) => {
+      filtros.cabeca = event.target.value
+      if (event.target.value == ""){
+        delete filtros.cabeca; 
+        excluirFiltro('cabeca')
+      } else {
+        addBotaoFiltrosUsados('cabeca')
+      }
+      filtrarLista()
+      carregarTabela()
+      focarNaPrimeiraLinha()
+    })
+    document.querySelector('#inputReferencia').addEventListener('keyup', (event) => {
+      filtros.referencia = event.target.value
+      if (event.target.value == ""){
+        delete filtros.referencia
+        excluirFiltro('referencia')
+      } else {
+        addBotaoFiltrosUsados('referencia')
+      }
+      filtrarLista()
+      carregarTabela()
+      if (event.key == 'ArrowDown'){
+        focarNaPrimeiraLinha()
+      }
+      
+    })
+    document.querySelector('#selectRoscaPonteira').addEventListener('change', (event) => {
+      filtros.roscaPonteira = event.target.value
+      if (event.target.value == ""){
+        delete filtros.roscaPonteira;
+        excluirFiltro('roscaPonteira')
+      } else {
+        addBotaoFiltrosUsados('roscaPonteira')
+      }
+      filtrarLista()
+      carregarTabela()
+      focarNaPrimeiraLinha()
+    })
+    document.querySelector('#selectRoscaCaixa').addEventListener('change', (event) => {
+      filtros.roscaCaixa = event.target.value
+      if (event.target.value == ""){
+        delete filtros.roscaCaixa;
+        excluirFiltro('roscaCaixa')
+      } else {
+        addBotaoFiltrosUsados('roscaCaixa')
+      }
+      filtrarLista()
+      carregarTabela()
+      focarNaPrimeiraLinha()
+      
+    })
+    document.querySelector('#selectDiametroFuroCaixa').addEventListener('change', (event) => {
+      filtros.diametroFuroCaixa = event.target.value
+      if (event.target.value == ""){
+        delete filtros.diametroFuroCaixa;
+        excluirFiltro('diametroFuroCaixa')
+      } else {
+        addBotaoFiltrosUsados('diametroFuroCaixa')
+      }
+      filtrarLista()
+      carregarTabela()
+      focarNaPrimeiraLinha()
+      
+    })
+    document.querySelector('#selectMarca').addEventListener('change', (event) => {
+      filtros.marca = event.target.value
+      if (event.target.value == ""){
+        delete filtros.marca;
+        excluirFiltro('marca')
+      } else {
+        addBotaoFiltrosUsados('marca')
+      }
+      filtrarLista()
+      carregarTabela()
+      focarNaPrimeiraLinha()
+    })
+
+    // Filtro de ordem crescente
+    document.querySelectorAll("[name='ordem-crescente']").forEach(radio => {
+      radio.addEventListener('change', (event) => {
+        if (event.target.id == "radio-tamanho"){
+          produtos.sort((a,b) => a.tamanho - b.tamanho)
+        }
+        else if (event.target.id == "radio-diametro-ponteira") {
+          produtos.sort((a,b) => a.diametroPonteira - b.diametroPonteira)
+        }
+        else if (event.target.id == "radio-dfcaixa"){
+          produtos.sort((a,b) => a.diametroFuroCaixa - b.diametroFuroCaixa)
+        }
+        else if (event.target.id == "radio-marca"){
+          produtos.sort((a,b) => a.marca.localeCompare(b.marca))
+        }
+        carregarTabela()
+        focarNaPrimeiraLinha()
+      })
+    })
+
+  </script>
+</body>
+</html>

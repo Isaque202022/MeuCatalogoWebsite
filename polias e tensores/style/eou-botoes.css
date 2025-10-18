@@ -1,0 +1,28 @@
+.eou-btn-container {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.eou-btn {
+  height: 100%;
+  width: fit-content;
+  background-color: lightgray;
+  color: gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10pt;
+  font-family: Arial;
+  font-weight: bold;
+  padding: 5px 7px;
+  border-radius: 5px;
+  cursor: pointer;
+  user-select: none;
+}
+.eou-btn p {
+  cursor: pointer;
+}
+.selecionado {
+  background: rgb(29, 81, 105);
+  color: white;
+}

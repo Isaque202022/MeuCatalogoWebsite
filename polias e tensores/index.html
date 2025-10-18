@@ -1,0 +1,202 @@
+  <!DOCTYPE html>
+  <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polias e Tensores</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/filtros.css">
+    <link rel="stylesheet" href="style/img-item.css">
+    <link rel="stylesheet" href="style/item.css">
+    <link rel="stylesheet" href="style/img-ampliada.css">
+    <link rel="stylesheet" href="style/aplicacoes.css">
+    <link rel="stylesheet" href="style/eou-botoes.css">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="wrapper"><div class="filtros-container">
+        <div class="filtro">
+          <h1>
+            <p class="titulo">Medidas</p>
+            <i class="fa-solid fa-eraser" id="eraser-medidas"></i>
+          </h1>
+          <div class="indentacao" id="medidas">
+            <div>
+              <label for="i-externo">externo</label>
+              <input placeholder="De" id="i-externo" autocomplete="off">
+              <input placeholder="Até" id="i-externo-ate">
+            </div>
+            <div>
+              <label for="i-interno">interno</label>
+              <input placeholder="De" id="i-interno">
+              <input placeholder="Até" id="i-interno-ate">
+            </div>
+            <div>
+              <label for="i-altura">altura</label>
+              <input placeholder="De" id="i-altura">
+              <input placeholder="Até" id="i-altura-ate">
+            </div>
+          </div>
+        </div>
+        <div class="filtro">
+          <h1>
+            <p class="titulo">Correia</p>
+            <i class="fa-solid fa-eraser"></i>
+          </h1>
+          <div class="eou-btn-container">
+            <div class="eou-btn selecionado" data-valor="and" data-categoria="correia"
+            onclick="eouClickBtn(this)">
+              <p>AeB</p>
+            </div>
+            <div class="eou-btn" data-valor="or" data-categoria="correia"
+            onclick="eouClickBtn(this)">
+              <p>AouB</p>
+            </div>
+          </div>
+          <div class="indentacao">
+            <div>
+              <input type="checkbox" id="i-dentada"> <label for="i-dentada">dentada</label>
+            </div>
+            <div>
+              <input type="checkbox" id="i-alternador"> <label for="i-alternador">alternador</label>
+            </div>
+            <div class="indentacao">
+              <input type="checkbox" id="i-tensor"> <label for="i-tensor">tensor</label>
+            </div>
+            <div class="indentacao">
+              <input type="checkbox" id="i-polia"> <label for="i-polia">polia</label>
+            </div>
+          </div>
+        </div>
+        <div class="filtro">
+          <h1>
+            <p class="titulo">Parede</p>
+            <i class="fa-solid fa-eraser"></i>
+          </h1>
+          <div class="eou-btn-container">
+            <div class="eou-btn selecionado" data-valor="and" data-categoria="parede"
+            onclick="eouClickBtn(this)">
+              <p>AeB</p>
+            </div>
+            <div class="eou-btn" data-valor="or" data-categoria="parede"
+            onclick="eouClickBtn(this)">
+              <p>AouB</p>
+            </div>
+          </div>
+          <div class="indentacao">
+            <div>
+              <input type="checkbox" id="i-com-aba"> <label for="i-com-aba">com aba</label>
+            </div>
+            <div>
+              <input type="checkbox" id="i-sem-aba"> <label for="i-sem-aba">sem aba</label>
+            </div>
+            <div>
+              <input type="checkbox" id="i-liso"> <label for="i-liso">liso</label>
+            </div>
+            <div>
+              <input type="checkbox" id="i-5pk"> <label for="i-5pk">5pk</label>
+            </div>
+            <div>
+              <input type="checkbox" id="i-6pk"> <label for="i-6pk">6pk</label>
+            </div>
+          </div>
+        </div>
+        <div class="filtro">
+          <h1>
+            <p class="titulo">Material</p>
+            <i class="fa-solid fa-eraser"></i>
+          </h1>
+          <div class="eou-btn-container">
+            <div class="eou-btn selecionado" data-valor="and" data-categoria="material"
+            onclick="eouClickBtn(this)">
+              <p>AeB</p>
+            </div>
+            <div class="eou-btn" data-valor="or" data-categoria="material"
+            onclick="eouClickBtn(this)">
+              <p>AouB</p>
+            </div>
+          </div>
+          <div class="indentacao">
+            <div>
+              <input type="checkbox" id="i-metal"> <label for="i-metal">metal</label>
+            </div>
+            <div>
+              <input type="checkbox" id="i-plastico"> <label for="i-plastico">plastico</label>
+            </div>
+          </div>
+        </div>
+        <div class="filtro" id="filtro-montadora">
+          <h1>
+            <p class="titulo">Montadora</p>
+            <i class="fa-solid fa-eraser" id="borracha-montadora"></i>
+          </h1>
+          <select id="select-montadora" onchange="selecionarMontadora(this)"></select>
+          <div class="selecionados"></div>
+          <input type="text" placeholder="Procurar carro..." onkeyup="procurarCarro(this)">
+          <input type="text" placeholder="Procurar referência cruzada..." onkeyup="procurarReferencia(this)">
+        </div>
+        <div class="filtro" id="filtro-ordenar">
+          <h1>
+            <p class="titulo">Ordenar por</p>
+          </h1>
+          <select onchange="ordenarProdutos(this.value)" style="padding: 3px;" id="ordenar-select">
+            <option value="descricao">DESCRICAO</option>
+            <option value="externo">EXTERNO</option>
+            <option value="interno">INTERNO</option>
+            <option value="altura">ALTURA</option>
+          </select>
+        </div>
+        
+      </div>
+    </div>
+
+      <!-- <div class="content-container"> -->
+        <div class="content"></div>
+      <!-- </div> -->
+    </div>
+
+    <div class="imagem-ampliada esconder modal" tabindex="0">
+      <div class="amp-img-btn" id="amp-btn-esq" onclick="passarImagemAmpliada(-1)"> <p>&lt;</p> </div>
+      <div class="amp-img-container">
+        <img src="">
+      </div>
+      <div class="amp-img-btn" id="amp-btn-dir"  onclick="passarImagemAmpliada(1)"> <p>&gt;</p> </div>
+    </div>
+
+    <div class="display-aplicacoes esconder modal">
+      <div class="d-aplicacoes">
+        <h3></h3>
+        <div class="divisoria"> </div>
+        <div class="table-container"><table id="table-aplicacoes">
+          <thead>
+            <th>Carro</th>
+            <th>Ano</th>
+            <th>Complemento</th>
+          </thead>
+          <tbody></tbody>
+        </table></div>
+      </div>
+      <div id="divisoria-displays"></div>
+      <div class="d-conversoes">
+        <h3>Conversões</h3>
+        <div class="lista-conversoes"></div>
+      </div>
+    </div>
+
+    <div class="display-msg esconder modal">
+      <div class="msg-container">
+        <div id="titulo-msg">Mensagem</div>
+        <div id="msg-aqui"></div>
+      </div>
+    </div>
+
+    <script src="dados/produtos.js"></script>
+    <script src="script/filtrar.js"></script>
+    <script src="script/script.js"></script>
+    <script src="script/mostrar-aplicacoes-conversoes.js"></script>
+    <script src="script/eou-botoes.js"></script>
+  </body>
+  </html>

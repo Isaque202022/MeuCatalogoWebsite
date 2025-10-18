@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pivô</title>
+  <link rel="stylesheet" href="index.css">
+  <!-- <link rel="stylesheet" href="modal.css"> -->
+  <!-- font awesome -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <!-- google fonts: Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="botoes-container">
+    <div class="botoes">
+      <a href="../menu/index.html" style="text-decoration: none;">
+        <button>Voltar ao menu</button>
+      </a></button>
+      <button onclick=location.reload()>Limpar filtros</button>
+    </div>
+
+    <div class="escolher-carro">
+      <label for="select-marca-carro">Montadora</label>
+      <select id="select-marca-carro" onchange="procurarCarroPorMontadora(this)"></select>
+      <label for="select-modelo-carro">Modelo</label>
+      <select id="select-modelo-carro" onchange="filtrarModeloCarro(this)"></select>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="table-container">
+      <table>
+        <thead>
+          <th class="th-select-marca">
+            <div>
+              <input type="radio" class="radio" id="radio-marca" name="ordem">
+              <label for="radio-marca">Marca</label>
+            </div>
+            <select id="select-marca"></select>
+          </th>
+          <th class="th-input-referencia">
+            <div>
+              <input type="radio" class="radio" id="radio-referencia" name="ordem">
+              <label for="radio-referencia">Referencia</label>
+            </div>
+            <input id="input-referencia" autocomplete="off">
+          </th>
+          <th class="th-select-pino">
+            <div>
+              <input type="radio" class="radio" id="radio-pino" name="ordem">
+              <label for="radio-pino">Pino</label>
+            </div>
+            <select id="select-pino"></select>
+          </th>
+          <th class="th-select-lado">
+            <div>
+              <input type="radio" class="radio" id="radio-lado" name="ordem">
+              <label for="radio-lado">Lado</label>
+            </div>
+            <select id="select-lado"></select>
+          </th>
+          <th class="th-input-descricao">
+            <div>
+              <input type="radio" class="radio" id="radio-descricao" name="ordem" checked>
+              <label for="radio-descricao">Descricao</label>
+            </div>
+            <input id="input-descricao" autocomplete="off">
+          </th>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div class="view">
+      <div class="imagem-container">
+        <div class="display-menu">
+          <div class="botao-img" onclick="trocarImagem(-1)">
+            <i class="fa-solid fa-less-than"></i>
+          </div>
+
+          <div class="imagem" onclick="clicarParaAmplicarImg()">
+            <img src="" alt="">
+          </div>
+
+          <div class="botao-img" onclick="trocarImagem(+1)">
+            <i class="fa-solid fa-greater-than"></i>
+          </div>
+        </div>
+        <div class="fracao-imagem"><p>
+          <span id="fracao1-2"></span>/
+          <span id="fracao2-2"></span>
+        </p></div>
+      </div>
+
+      <div class="texto">
+        <div class="marca-ref"></div>
+
+        <div class="observacoes"></div>
+
+        <div class="aplicacoes"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- visualizador ao clicar na imagem -->
+  <div class="fullscreen esconder" onclick="cliqueNaImagemAmpliada(event, this)">
+    <div class="btn-esq"><div onclick="trocarImagem(-1)">
+      <i class="fa-solid fa-less-than"></i>
+    </div></div>
+    <img src="" onerror="this.src='imagens/img-not-found.png';">
+    <div class="btn-dir"><div  onclick="trocarImagem(+1)">
+      <i class="fa-solid fa-greater-than"></i>
+    </div></div>
+  </div>
+
+  <script src="produtos.js"></script>
+  <script src="funcoes.js"></script>
+  
+  <script>
+    const tableBody = document.querySelector('table').querySelector('tbody')
+    const tableContainer = document.querySelector('.table-container')
+    const fullscreen = document.querySelector('.fullscreen')
+    const imgView = document.querySelector('.view').querySelector('img')
+    const imgFullscreen = fullscreen.querySelector('img')
+    let i_produto_selecinado = 0
+    let linha_selecionada = null
+    let indice_imagem = 0
+    let modeloDestaque = ''
+    const filtros = {aplicacoes: {montadora:'', modelo:''}}
+    let selects = [
+      // Isso é necessario para atualizar os valores dos selects ao filtrar
+      {id:'select-marca',chave:'marca'},
+      {id:'select-pino',chave:'pino'},
+      {id:'select-lado',chave:'lado'},
+    ]
+
+    produtos.forEach(produto => produto.visible = true);
+    produtos.sort((a,b) => a.descricao.localeCompare(b.descricao))
+
+    alimentarSelectMontadoraModelo()
+    // ao clicar esq remove tela cheia da imagem ampliada
+    document.addEventListener('keyup', (e) => {
+      if (e.key == 'Escape'){
+        fullscreen.classList.add('esconder')
+        tableBody.focus();
+      }
+      if (e.key.toLowerCase() == 'q'){
+        clicarParaAmplicarImg()
+      }
+      if (!fullscreen.classList.contains('esconder')){
+        if (e.key == 'ArrowRight') trocarImagem(+1)
+        if (e.key == 'ArrowLeft') trocarImagem(-1)
+      }
+    })
+
+    // colocar imagem no view
+    setImage()
+    mostrarTextoProduto()
+
+    colocarEventosNosInputsRadio()
+
+    // filtrar produtos
+    filtrarProdutos()
+
+    // colocar listeners nos inputs e selects
+    // as chaves de filtros devem ser iguais aos dos produtos
+    document.getElementById('select-marca').addEventListener('change', (e) => {
+      eventoChangeInputSelect(e.target, 'marca', false)
+    })
+    document.getElementById('select-pino').addEventListener('change', (e) => {
+      eventoChangeInputSelect(e.target, 'pino', false)
+    })
+    document.getElementById('select-lado').addEventListener('change', (e) => {
+      eventoChangeInputSelect(e.target, 'lado', false)
+    })
+    document.getElementById('input-referencia').addEventListener('keyup', (e) => {
+      eventoChangeInputSelect(e.target, 'referencia', true)
+      
+      e.target.focus()
+      if (e.key == 'ArrowDown') {
+        tableBody.focus()
+        tableContainer.scrollTop = 0
+      }
+    })
+    document.getElementById('input-descricao').addEventListener('keyup', (e) => {
+      eventoChangeInputSelect(e.target, 'descricao', true)
+
+      e.target.focus()
+      if (e.key == 'ArrowDown') {
+        tableBody.focus()
+        tableContainer.scrollTop = 0
+      }
+    })
+
+
+    tableBody.setAttribute('tabindex', '0'); // deixa o tbody focavel
+    tableBody.focus()
+    percorrerLinhasComTeclado()
+    
+  
+    
+  
+  
+  </script>
+</body>
+</html>

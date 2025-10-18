@@ -1,0 +1,63 @@
+* {
+  padding: 0;
+  margin: 0;
+  cursor: default;
+  outline: none;
+}
+body {
+  padding: 10px;
+  height: 96vh;
+  /*overflow: hidden;*/
+}
+.content {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+.table-container {
+  flex: 1 ;
+  overflow: auto;
+  scrollbar-gutter: stable; /* reserva o espaço da barra */
+}
+table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-bottom: 1px solid black;
+}
+td, th {
+  padding: 3px;
+  word-break: break-all;
+}
+td {
+  border-top: 1px solid black;
+}
+label {
+  margin-left: 3px;
+}
+.elemento-filtro {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 3px;
+}
+
+
+/* thead fixo ao descer scroll */
+th {
+  position: sticky;
+  top: 0;
+  background-color: white;
+}
+
+/* largura especifica de cada coluna */
+/*thead th:nth-of-type(1) { width: 20%; } /* marca */
+thead th:nth-of-type(2) { width: 30%; } /* referencia */
+/*thead th:nth-of-type(3) { width: 20%; } /* dentes internos*/
+/*thead th:nth-of-type(4) { width: 20%; } /* dentes externos */
+/*thead th:nth-of-type(5) { width: 20%; } /* trava */
+
+
+.side-bar {
+  width: 300px;
+}

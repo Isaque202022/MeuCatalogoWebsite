@@ -1,0 +1,413 @@
+function ordenar(tipo, filtro1, filtro2, filtro3, lista){
+    // se parar linhas por tipo
+    for (let i=0; i<lista.length; i++){
+        icopy = i+1
+        while (true){if(icopy<lista.length && lista[i][tipo] != lista[icopy][tipo]){
+            icopy +=1
+        }else{break}}
+        if(icopy<lista.length && lista[i+1][tipo] != lista[icopy][tipo]){
+            let aux = lista[i+1]
+            lista[i+1] = lista[icopy]
+            lista[icopy] = aux
+        }
+    }
+    console.log('\ndepois de separar por tipo\n')
+    for (let i=0; i<produtos.length; i++){
+        console.log(produtos[i]['dttsvard'], produtos[i]['externo'], produtos[i]['interno'], produtos[i]['altura'],)
+    }
+    // numeros no inicio, NaN no final - filtro 1
+    for (let i=0; i<lista.length; i++){
+        let icopy = i
+        let iultimo = lista.length-1
+        
+        while (!parseFloat(lista[icopy][filtro1])){ // enquanto num atual nao for num, troca com o ultimo num
+            if (iultimo == icopy){break}
+            else if (parseFloat(lista[iultimo][filtro1]) && lista[icopy][tipo]==lista[iultimo][tipo]){
+                let aux = lista[iultimo]
+                lista[iultimo] = lista[icopy]
+                lista[icopy] = aux
+            } else {
+                iultimo -= 1
+            }
+        }
+    } 
+    // ordenar menor para o maior filtro 1
+    for (let i=0; i<lista.length; i++){
+        icopy = i
+        iant = icopy-1
+        let numatu = parseFloat(lista[icopy][filtro1])
+        let numant = iant>=0 ? parseFloat(lista[iant][filtro1]) : undefined
+
+        if (numant && numatu){while (numatu<numant  && lista[icopy][tipo]==lista[iant][tipo]){
+            let aux = lista[icopy]
+            lista[icopy] = lista[iant]
+            lista[iant] = aux
+
+            icopy -=1
+            iant=icopy-1
+            if (icopy==0){break}else{
+                numatu = parseFloat(lista[icopy][filtro1])
+                numant = iant>=0 ? parseFloat(lista[iant][filtro1]) : undefined
+            }
+        }}
+    } 
+    // numeros no inicio, NaN no final - filtro 2
+    for (let i=0; i<lista.length; i++){
+        for(let x=i; x<lista.length; x++){
+            if (lista[x][filtro1] != lista[i][filtro1]){
+                iultimo = x-1
+                break
+            } 
+            if (x==lista.length-1){
+                iultimo = x
+                break
+            }
+        }
+        while (!parseFloat(lista[i][filtro2]) && i<iultimo){
+            if (parseFloat(lista[iultimo][filtro2]) && lista[icopy][tipo]==lista[iultimo][tipo]){
+                aux = lista[iultimo]
+                lista[iultimo] = lista[i]
+                lista[i] = aux
+            } else {
+                iultimo -=1
+            }
+        }
+    } 
+    // ordenar menor para o maior filtro 2
+    for (let i=0; i<lista.length; i++){
+        icopy = i
+        iant = icopy-1
+        let numatu = parseFloat(lista[icopy][filtro2])
+        let numant = iant>=0 && lista[icopy][filtro1] == lista[iant][filtro1]? parseFloat(lista[iant][filtro2]) : undefined
+
+        if (numant && numatu){while (numatu<numant && lista[icopy][tipo]==lista[iant][tipo]){
+            let aux = lista[icopy]
+            lista[icopy] = lista[iant]
+            lista[iant] = aux
+
+            icopy -=1
+            iant=icopy-1
+            if (icopy==0){break}else{
+                numatu = parseFloat(lista[icopy][filtro2])
+                numant = iant>=0 && lista[icopy][filtro1] == lista[iant][filtro1]? parseFloat(lista[iant][filtro2]) : undefined
+            }
+        }}
+    } 
+    // numeros no inicio, NaN no final - filtro 3
+    for (let i=0; i<lista.length; i++){
+        for(let x=i; x<lista.length; x++){
+            if (lista[x][filtro2] != lista[i][filtro2]){
+                iultimo = x-1
+                break
+            } 
+            if (x==lista.length-1){
+                iultimo = x
+                break
+            }
+        }
+        while (!parseFloat(lista[i][filtro3]) && i<iultimo){
+            if (parseFloat(lista[iultimo][filtro3]) && lista[icopy][tipo]==lista[iultimo][tipo]){
+                aux = lista[iultimo]
+                lista[iultimo] = lista[i]
+                lista[i] = aux
+            } else {
+                iultimo -=1
+            }
+        }
+    } 
+    // ordenar menor para o maior filtro 3
+    for (let i=0; i<lista.length; i++){
+        icopy = i
+        iant = icopy-1
+        let numatu = parseFloat(lista[icopy][filtro3])
+        let numant = iant>=0 && lista[icopy][filtro2] == lista[iant][filtro2] && lista[icopy][filtro1] == lista[iant][filtro1] ? parseFloat(lista[iant][filtro3]) : undefined
+
+        if (numant && numatu){while (numatu<numant && lista[icopy][tipo]==lista[iant][tipo]){
+            let aux = lista[icopy]
+            lista[icopy] = lista[iant]
+            lista[iant] = aux
+
+            icopy -=1
+            iant=icopy-1
+            if (icopy==0){break}else{
+                numatu = parseFloat(lista[icopy][filtro3])
+                numant = iant>=0 && lista[icopy][filtro2] == lista[iant][filtro2]? parseFloat(lista[iant][filtro3]) : undefined
+            }
+        }}
+    }
+
+    return lista
+}
+let produtos = [
+  {
+    dttsvard: 'DIANTEIRO',
+    externo: '37.6',
+    interno: '26',
+    altura: '6',
+    
+  },
+  {
+    dttsvard: 'DIANTEIRO',
+    externo: '52',
+    interno: '38',
+    altura: '7',
+  },
+  {
+    dttsvard: 'DIANTEIRO',
+    externo: '37',
+    interno: '27',
+    altura: '7',
+  },
+  {
+    dttsvard: 'DIANTEIRO',
+    externo: '37',
+    interno: '27',
+    altura: '7',
+  },
+  {
+    dttsvard: 'DIANTEIRO',
+    externo: '37',
+    interno: '27',
+    altura: '7',
+  },
+  {
+    dttsvard: 'DIANTEIRO',
+    externo: '37',
+    interno: '27',
+    altura: '7',
+  },
+  {
+    dttsvard: 'DIANTEIRO',
+    externo: '42',
+    interno: '32',
+    altura: '7',
+  },
+  {
+    dttsvard: 'DIANTEIRO',
+    externo: '42',
+    interno: '32',
+    altura: '7',
+  },
+  {
+    dttsvard: 'DIANTEIRO',
+    externo: '54',
+    interno: '35',
+    altura: '10',
+  },
+  {
+    dttsvard: 'DIANTEIRO',
+    externo: '54',
+    interno: '35',
+    altura: '10',
+  },
+  {
+    dttsvard: 'DIANTEIRO',
+    externo: '24',
+    interno: '15',
+    altura: '7',
+  },
+  {
+    dttsvard: 'DIANTEIRO',
+    externo: '47',
+    interno: '28',
+    altura: '8',
+  },
+  {
+    dttsvard: 'DIANTEIRO',
+    externo: '60',
+    interno: '45',
+    altura: '9',
+  },
+  {
+    dttsvard: 'DIANTEIRO',
+    externo: '42',
+    interno: '28',
+    altura: '7',
+  },
+  {
+    dttsvard: 'DIANTEIRO',
+    externo: '52',
+    interno: '30',
+    altura: '7',
+  },
+  {
+    dttsvard: 'DIANTEIRO',
+    externo: '48',
+    interno: '35',
+    altura: '7',
+  },
+  {
+    dttsvard: 'DIANTEIRO',
+    externo: '48',
+    interno: '35',
+    altura: '7',
+  },
+  {
+    dttsvard: 'DIANTEIRO',
+    externo: '48',
+    interno: '35',
+    altura: '7',
+  },
+  {
+    dttsvard: 'DIANTEIRO',
+    externo: '42',
+    interno: '30',
+    altura: '7',
+  },
+  {
+    dttsvard: 'DIANTEIRO',
+    externo: '42',
+    interno: '30',
+    altura: '7',
+  },
+  {
+    dttsvard: 'DIANTEIRO',
+    externo: '47',
+    interno: '30',
+    altura: '7',
+  },
+  {
+    dttsvard: 'DIANTEIRO',
+    externo: '55',
+    interno: '40',
+    altura: '7',
+  },
+  {
+    dttsvard: 'DIANTEIRO',
+    externo: '46',
+    interno: '32',
+    altura: '6',
+  },
+  {
+    dttsvard: 'DIANTEIRO',
+    externo: '52',
+    interno: '38',
+    altura: '6',
+  },
+  {
+    dttsvard: 'DIANTEIRO',
+    externo: '69',
+    interno: '40',
+    altura: '15.4',
+  },
+  {
+    dttsvard: 'DIANTEIRO',
+    externo: '62',
+    interno: '40',
+    altura: '7.4',
+  },
+  {
+    dttsvard: 'DIANTEIRO',
+    externo: '62',
+    interno: '40',
+    altura: '7.4',
+  },
+  {
+    dttsvard: 'DIANTEIRO',
+    externo: '62',
+    interno: '40',
+    altura: '7.4',
+  },
+  {
+    dttsvard: 'DIANTEIRO',
+    externo: '42',
+    interno: '26',
+    altura: '8',
+  },
+  {
+    dttsvard: 'DIANTEIRO',
+    externo: '52',
+    interno: '30',
+    altura: '7',
+  },
+  {
+    dttsvard: 'DIANTEIRO',
+    externo: '47',
+    interno: '32',
+    altura: '10',
+  },
+  {
+    dttsvard: 'DIANTEIRO',
+    externo: '52.4',
+    interno: '36.6',
+    altura: '8',
+  },
+  {
+    dttsvard: 'DIANTEIRO',
+    externo: '',
+    interno: '',
+    altura: '',
+  },
+  {
+    dttsvard: 'DIANTEIRO',
+    externo: '50',
+    interno: '31',
+    altura: '8',
+  },
+  {
+    dttsvard: 'DIANTEIRO',
+    externo: '47',
+    interno: '33',
+    altura: '6.3',
+  },
+  {
+    dttsvard: 'DIANTEIRO',
+    externo: '50',
+    interno: '35',
+    altura: '8',
+  },
+  {
+    dttsvard: 'DIANTEIRO',
+    externo: '44',
+    interno: '32',
+    altura: '6',
+  },
+  {
+    dttsvard: 'DIANTEIRO',
+    externo: '48',
+    interno: '34',
+    altura: '7',
+  },
+  {
+    dttsvard: 'DIANTEIRO',
+    externo: '45',
+    interno: '32',
+    altura: '6',
+  },
+  {
+    dttsvard: 'DIANTEIRO',
+    externo: '55',
+    interno: '31',
+    altura: '7',
+  },
+  {
+    dttsvard: 'DIANTEIRO',
+    externo: '32',
+    interno: '21',
+    altura: '7.5',
+  },
+  {
+    dttsvard: 'DIANTEIRO',
+    externo: '32',
+    interno: '21',
+    altura: '7.5',
+  },
+  {
+    dttsvard: 'DIANTEIRO',
+    externo: '40',
+    interno: '22',
+    altura: '8',
+  },
+  {
+    dttsvard: 'DIANTEIRO',
+    externo: '42',
+    interno: '29.9',
+    altura: '7',
+  },
+]
+
+produtos = ordenar('dttsvard','externo', 'interno', 'altura', produtos)
+console.log('fim')
+for (let i=0; i<produtos.length; i++){
+  console.log(produtos[i])
+}

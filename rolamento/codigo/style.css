@@ -1,0 +1,10 @@
+#descricao-th, .descricao {
+    min-width: 280px;
+    max-width: 280px;
+}
+#marca-th {
+    min-width: 95px;   
+}
+#externo-th {
+    max-width: 90px;
+}

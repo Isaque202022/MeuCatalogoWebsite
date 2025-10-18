@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <div class="pesquisa-produto">
+    Procurar produto: <input onkeyup="renderizarDisplayProdutos(this)">
+  
+    <div class="display-produtos"> </div>
+  </div>
+
+
+  <div class="produto">
+    <div class="chave">
+      <p>Marca:</p>       
+      <input type="text">
+    </div>
+    <div class="chave">
+      <p>Referência:</p>  
+      <input type="text">
+    </div>
+    <div class="chave">
+      <p>Externo:</p>     
+      <input type="text">
+    </div>
+    <div class="chave">
+      <p>Interno:</p>     
+      <input type="text">
+    </div>
+    <div class="chave">
+      <p>Altura:</p>     
+      <input type="text">
+    </div>
+    <div class="chave">
+      <p>Parede:</p>     
+      <select id="">
+        <option value=""></option>
+        <option value="com-aba">com aba</option>
+        <option value="sem-aba">sem aba</option>
+        <option value="liso">liso</option>
+        <option value="5pk">5pk</option>
+        <option value="6pk">6pk</option>
+      </select>
+      <span>com aba</span>
+    </div>
+  </div>
+
+</div>
+
+  <script src="../dados/produtos.js"></script>
+  <script>
+    produtos.sort((a,b) =>{
+      if (a.referencia == b.referencia){
+        return a.referencia.localeCompare(b.referencia)
+      }
+      return a.marca.localeCompare(b.marca)
+    })
+    const displayProdutos = document.querySelector('.display-produtos')
+
+    function renderizarDisplayProdutos(pesquisa) {
+      displayProdutos.innerHTML = ''
+      produtos.forEach((produto, indice) => {
+        const div = document.createElement('div')
+        div.id = indice
+        const p = document.createElement('p')
+        div.appendChild(p)
+        p.textContent = `${produto.marca.toUpperCase()} ${produto.referencia.toUpperCase()}`
+
+        div.addEventListener('click', ()=> {
+          mostrarDetalhesProduto(indice)
+        })
+        if (pesquisa){
+          if (!p.textContent.toLowerCase().includes(pesquisa.value.toLowerCase())) return
+        }
+        displayProdutos.appendChild(div)
+      });
+    }
+    renderizarDisplayProdutos()
+  
+    function mostrarDetalhesProduto(indice) {
+      document.getElementById('marca').innerText = produtos[indice].marca
+      document.getElementById('referencia').innerText = produtos[indice].referencia
+      document.getElementById('externo').innerText = produtos[indice].externo
+
+
+      alert(JSON.stringify(produtos[indice], null, 2))
+    }
+
+  </script>
+</body>
+</html>

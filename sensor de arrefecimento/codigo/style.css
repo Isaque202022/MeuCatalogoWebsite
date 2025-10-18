@@ -1,0 +1,96 @@
+* {
+    cursor: default;
+}
+a {
+    cursor: pointer;
+}
+body {
+    padding: 20px;
+}
+.voltar-menu-ancor {
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+    height: 100%;
+}
+.voltar-menu-btn, .limpar-filtros-btn {
+    padding: 10px 15px;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 2px;
+    background-color: #f5c34e;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: 
+        color 0.2s,
+        background-color 0.2s
+    ;
+}
+.voltar-menu-btn:hover, .limpar-filtros-btn:hover {
+    color: #f5c34e;
+    background-color: black;
+}
+table {
+    border-collapse: collapse;
+}
+td, th {
+    padding: 5px;
+    border: 1px solid black;
+}
+img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+.td-img {
+    padding: 0;
+    margin: 0;
+}
+.esconder {
+    display: none;
+}
+#descricao-th {
+    min-width: 320px;
+}
+#referencia-th {
+    max-width: 120px;
+}
+#referencia-th input {
+    max-width: 120px;
+    box-sizing: border-box;
+}
+#marca-th {
+    min-width: 100px;
+}
+.td-links-externos a{
+    display: block;
+}
+thead th{
+    position: sticky;
+    top: 0;
+    background-color: white;
+    border: 1px solid black;
+    z-index: 2;
+}
+/* Estilo inicial para ocultar os botões */
+.botao-copiar {
+    display: none;
+    cursor: pointer;
+}
+.fa-copy {
+    cursor: pointer;
+    font-size: 1.3rem;
+    opacity: 0.3;
+}
+.mostrar-botao-copiar {
+    display: inline-block;
+}
+tbody p {
+    display: inline-block;
+}

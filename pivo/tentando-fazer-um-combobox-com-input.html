@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Combobox com input</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      cursor: default;
+    }
+    body {
+      padding: 10px;
+    }
+    .container {
+      width: 150px;
+      background-color: rgb(133, 150, 158);
+      padding: 10px;
+      border-radius: 3px;
+      position: relative;
+    }
+    .pesquisa {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    input {
+      padding: 4px;
+      width: 100%;
+      box-sizing: border-box;
+      margin: 5px;
+      outline: none;
+    }
+    .dropbox {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      background-color: rgb(133, 150, 158);
+      border-radius: 3px;
+      max-height: 100px;
+      overflow: auto;
+    }
+    .dropbox::-webkit-scrollbar {
+      width: 8px;   /* largura da barra vertical */
+      height: 8px;  /* altura da barra horizontal (se tiver) */
+      padding: 2px;
+    }
+    /* fundo da barra */
+    .dropbox::-webkit-scrollbar-track {
+      background-color: rgb(133, 150, 158);
+      border-radius: 5px;
+    }
+
+    /* parte que desliza */
+    .dropbox::-webkit-scrollbar-thumb {
+      background-color: white;
+      border-radius: 5px;
+      border-right: 2px solid rgb(133, 150, 158);
+    }
+    .dropbox .opcao {
+      padding: 5px 10px ;
+    }
+    .dropbox .opcao:hover {
+      background-color: rgb(176, 194, 203);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="pesquisa">
+      <label for="pesquisa">Pesquisar</label>
+      <input id="pesquisa">
+    </div>
+    <div class="dropbox"></div>
+  </div>
+
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga laudantium, molestiae sapiente, vero explicabo commodi ea iusto dolore nobis nemo sint repellendus dignissimos rem aliquid repudiandae saepe aut, recusandae vel.</p>
+
+
+  <script>
+    const marcas = ['fiat','volkswagen','chevrolet','audi','jac']
+    marcas.forEach(marca => {
+      const div = document.createElement('div')
+      div.value = marca.toLowerCase()
+      div.textContent = marca.toUpperCase()
+      div.classList.add('opcao')
+      document.querySelector('.dropbox').appendChild(div)
+    })
+  </script>
+</body>
+</html>

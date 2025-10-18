@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homocineticas e deslizantes</title>
+    <link rel="stylesheet" href="../../caracteristicas em comum/style.css">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="../../icone-pagina.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="../../menu/index.html" class="voltar-menu-ancor">
+        <button class="voltar-menu-btn">
+            Voltar ao menu
+        </button>
+    </a>
+    <button class="limpar-filtros-btn" onclick="limparFiltros()">Limpar Filtros</button>
+    <table>
+        <thead>
+            <tr>
+                <th id="tipo"><p>TIPO</p></th>
+                <th id="descricao-th">
+                    <p>DESCRICAO</p>   
+                    <input id="descricao-inp" autocomplete="off" onkeyup="filtrar()">
+                </th>
+                <th id="referencia-th">
+                    <p>REFERENCIA</p>  
+                    <input id="referencia-inp" autocomplete="off" onkeyup="filtrar()">
+                </th>
+                <th id="marca-th">
+                    <p>MARCA</p>  
+                    <input id="marca-inp" autocomplete="off" onkeyup="filtrar()">
+                </th>
+                <th id="dentes-int"><p>DENT INT</p></th>
+                <th id="dentes-ext"><p>DENT EXT</p></th>
+                <th id="diam-paraf"><p>DIAM PARAF</p></th>
+                <th id="trava"><p>TRAVA</p></th>
+                <th><p>LINKS EXTERNOS</p></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+        
+    </table>
+    
+    <script src="produtos.js"></script>
+    <script>
+        
+        function prepararLinksExternos(index){
+            let linksExternosHtml = ''
+            for (let i=0; i<produtos[index]['linksExternos'].length; i++){
+                linksExternosHtml += `
+                    <a href="${produtos[index]['linksExternos'][i].url}" target="_blank">${produtos[index]['linksExternos'][i].titulo}</a>
+                `
+            }
+            return linksExternosHtml
+        }
+        function alimentarTabela() {
+            const tbody = document.querySelector('tbody')
+            let html = ''
+            for (let i=0; i<produtos.length; i++){
+                html += `
+                <tr>
+                    <td class='tipo'>${produtos[i].tipo}</td>
+                    <td class='descricao'>${produtos[i].desc}</td>
+                    <td class='referencia'><p>${produtos[i].referencia}</p>
+                        <div class='botao-copiar'>
+                            <i class="fa-regular fa-copy" onclick='copiarReferencia(this)'></i>
+                        </div>
+                    </td>
+                    <td class='marca'>${produtos[i].marca}</td>
+                    <td class='dentes-int'>${produtos[i].int}</td>
+                    <td class='dentes-ext'>${produtos[i].ext}</td>
+                    <td class='diam-paraf'>${produtos[i].diamParaf}</td>
+                    <td class='trava'>${produtos[i].trava}</td>
+                    <td class='td-links-externos'>${prepararLinksExternos(i)}</td>
+                </tr>
+                `
+            }
+            tbody.innerHTML = html
+        }
+        alimentarTabela()
+        console.log(`//mostrar todas as marcas disponiveis
+            let marcas = document.querySelectorAll('.marca')
+            let list = []
+            for (let i=0; i<marcas.length; i++){
+                if (!list.includes(marcas[i].innerText)){
+                    list.push(marcas[i].innerText)
+                }
+            }
+            list`)
+
+        function organizarListaSelect(list){
+            let listaNumeros = []
+            for (let i=0; i<list.length; i++){
+                if (list[i] != ''){
+                    let string = list[i]
+                    string = string.replace(',','.')
+                    let number = string
+                    if(string!='#'){number = parseFloat(string)}
+                    listaNumeros.push(number)
+                    listaNumeros.sort((a, b) => a - b);
+                }
+            }
+            console.log('ordenar select',listaNumeros)
+            if (list.includes('')){
+                listaNumeros.unshift('')
+            }
+            
+            return listaNumeros
+        }
+        function gerarSelect(className,idElement,ordenarNumCrescente){
+            const elementos = document.querySelectorAll('.'+className)
+            let list = []
+            for (let i=0; i<elementos.length; i++){
+                if (!list.includes(elementos[i].innerText)){
+                    list.push(elementos[i].innerText)
+                }
+            }
+            if (ordenarNumCrescente){list = organizarListaSelect(list)}
+            
+            const e = document.querySelector('#'+idElement)
+            let html = '<option value="">--selecione--</option>'
+
+            for (let nomeIndex in list) {
+                if (list[nomeIndex] != ''){
+                    html += `<option value="${list[nomeIndex]}">${list[nomeIndex]}</option>`
+                }
+            }
+
+            e.innerHTML += `<select id='${idElement}-filtro' onchange='filtrar()'>${html}</select>`
+        }
+        gerarSelect(className='tipo', idElement='tipo',ordenarNumCrescente=false)
+        gerarSelect(className='dentes-int', idElement='dentes-int',ordenarNumCrescente=true)
+        gerarSelect(className='dentes-ext', idElement='dentes-ext', ordenarNumCrescente=true)
+        gerarSelect(className='diam-paraf', idElement='diam-paraf', ordenarNumCrescente=true)
+        gerarSelect(className='trava', idElement='trava', ordenarNumCrescente=false)
+
+
+        function filtrar(){
+            let intersecaoFiltros = []
+            const inputs = document.querySelectorAll('input')
+            for (let i=0; i<inputs.length; i++){
+                if(inputs[i].id == 'descricao-inp'){
+                    const input = document.querySelector('#descricao-inp')
+                    let list = []
+                    const elementos = document.querySelectorAll('.descricao')
+                    for (let x=0; x<elementos.length; x++){
+                        if (elementos[x].innerText.includes(input.value.toUpperCase())){
+                            list.push(x)
+                        }
+                    }
+                    intersecaoFiltros.push(list)
+                }
+                if(inputs[i].id == 'referencia-inp'){
+                    const input = document.querySelector('#referencia-inp')
+                    let list = []
+                    const elementos = document.querySelectorAll('.referencia')
+                    for (let x=0; x<elementos.length; x++){
+                        if (elementos[x].innerText.includes(input.value.toUpperCase())){
+                            list.push(x)
+                        }
+                    }
+                    intersecaoFiltros.push(list)
+                }
+                if(inputs[i].id == 'marca-inp'){
+                    const input = document.querySelector('#marca-inp')
+                    let list = []
+                    const elementos = document.querySelectorAll('.marca')
+                    for (let x=0; x<elementos.length; x++){
+                        if (elementos[x].innerText.includes(input.value.toUpperCase())){
+                            list.push(x)
+                        }
+                    }
+                    intersecaoFiltros.push(list)
+                }
+            
+            }
+            
+            const selects = document.querySelectorAll('select')
+            for (let i=0; i<selects.length; i++){
+                if(selects[i].id == 'tipo-filtro'){
+                    const select = document.querySelector('#tipo-filtro')
+                    let list = []
+                    const elementos = document.querySelectorAll('.tipo')
+                    for (let x=0; x<elementos.length; x++){
+                        if (elementos[x].innerText == select.value && select.value != ''){
+                            list.push(x)
+                        }
+                    }
+                    if (select.value != ''){intersecaoFiltros.push(list)}
+                }
+                if(selects[i].id == 'dentes-int-filtro'){
+                    const select = document.querySelector('#dentes-int-filtro')
+                    let list = []
+                    const elementos = document.querySelectorAll('.dentes-int')
+                    for (let x=0; x<elementos.length; x++){
+                        if (elementos[x].innerText == select.value && select.value != ''){
+                            list.push(x)
+                        }
+                    }
+                    if (select.value != ''){intersecaoFiltros.push(list)}
+                }
+                if(selects[i].id == 'dentes-ext-filtro'){
+                    const select = document.querySelector('#dentes-ext-filtro')
+                    let list = []
+                    const elementos = document.querySelectorAll('.dentes-ext')
+                    for (let x=0; x<elementos.length; x++){
+                        if (elementos[x].innerText == select.value && select.value != ''){
+                            list.push(x)
+                        }
+                    }
+                    if (select.value != ''){intersecaoFiltros.push(list)}
+                }
+                if(selects[i].id == 'diam-paraf-filtro'){
+                    const select = document.querySelector('#diam-paraf-filtro')
+                    let list = []
+                    const elementos = document.querySelectorAll('.diam-paraf')
+                    for (let x=0; x<elementos.length; x++){
+                        if (elementos[x].innerText == select.value && select.value != ''){
+                            list.push(x)
+                        }
+                    }
+                    if (select.value != ''){intersecaoFiltros.push(list)}
+                }
+                if(selects[i].id == 'trava-filtro'){
+                    const select = document.querySelector('#trava-filtro')
+                    let list = []
+                    const elementos = document.querySelectorAll('.trava')
+                    for (let x=0; x<elementos.length; x++){
+                        if (elementos[x].innerText == select.value && select.value != ''){
+                            list.push(x)
+                        }
+                    }
+                    if (select.value != ''){intersecaoFiltros.push(list)}
+                }
+            
+            }
+            
+
+            intersecaoFiltros = numerosEmComum(intersecaoFiltros)
+            //console.log(intersecaoFiltros)
+
+            // esconder/mostrar linhas
+            const linhas = document.querySelector('tbody').children
+            let auxiliar = 0
+            for (let i=0; i<linhas.length; i++){
+                if (intersecaoFiltros[auxiliar] == i){
+                    linhas[i].classList.remove('esconder')
+                    auxiliar += 1
+                } else {
+                    linhas[i].classList.add('esconder')
+                }
+            }
+        }
+
+        function numerosEmComum(list){
+            // 'list' é uma lista que contem outras listas de numeros
+            // ache os numeros que sao comuns em todas as listas 
+            // faça um return desses numeros 
+            if (list.length === 0) return []; // Retorna vazio se não houver listas
+                // Começa com os números da primeira lista
+            return list.reduce((common, currentList) => {
+                // Filtra os números que estão presentes na lista atual
+                return common.filter(num => currentList.includes(num));
+            });
+            
+        }
+        function limparFiltros() {
+            const inputs = document.querySelectorAll('input')
+            const selects = document.querySelectorAll('select')
+            for (let i=0; i<inputs.length; i++){
+                inputs[i].value = ''
+            }
+            for (let i=0; i<selects.length; i++){
+                selects[i].value = ''
+            }
+            
+            const linhas = document.querySelector('tbody').children
+            for (let i=0; i<linhas.length; i++){
+                linhas[i].classList.remove('esconder')
+            }
+        }
+    
+        // botao copiar referencia
+        const linhas = document.querySelector('tbody').children
+        for (let x=0; x<linhas.length; x++){
+            const pLinha = linhas[x]
+            pLinha.addEventListener('mouseenter', function(){
+                pLinha.querySelector('.botao-copiar').classList.add('mostrar-botao-copiar')
+            })
+            pLinha.addEventListener('mouseleave', function(){
+                pLinha.querySelector('.botao-copiar').classList.remove('mostrar-botao-copiar')
+            })
+        }
+        
+        function copiarReferencia(iconElement){
+            let texto = iconElement.parentElement.parentElement.innerText
+            if (texto.endsWith(" ")) {
+                texto = texto.slice(0, -1); // Remove o último caractere
+            }
+            let input = document.createElement('input')
+            input.value = texto
+            document.body.appendChild(input)    
+            input.select()
+            document.execCommand("copy");
+            document.body.removeChild(input);      
+        }
+    </script>
+</body>
+</html>

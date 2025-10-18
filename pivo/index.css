@@ -1,0 +1,259 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  cursor: default;
+  font-family: Roboto;
+  font-size: 0.97rem;
+}
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+/* topo */
+.botoes-container {
+  background-color: rgb(255, 183, 95);
+  height: 70px;   /* altura fixa */
+  flex-shrink: 0;  /* nunca encolher */
+  display: flex;
+  align-items: center;
+}
+.botoes-container button {
+  padding: 10px;
+}
+.escolher-carro {
+  margin-left: 160px;
+}
+
+/* content */
+.content {
+  display: flex;
+  flex: 1;       /* pega o restante */
+  min-height: 0; /* <-- IMPORTANTE p/ evitar bug de rolagem */
+}
+
+/* table container */
+.table-container {
+  background-color: rgb(198, 225, 255);
+  flex: 1;
+  overflow-y: auto;         /* só aparece a barra quando precisa */
+  scrollbar-gutter: stable; /* reserva o espaço */
+  box-sizing: border-box;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+}
+thead th {
+  margin-top: 0;
+  position: sticky;
+  top: 0;
+  background-color: white;
+}
+
+td, th{
+  border-right: 1px solid #00000000;
+  padding: 3px;
+}
+td {border-bottom: 1.5px solid #464545;}
+
+th select, th input {
+  width: 100%;
+  padding: 3px;
+  outline: none;
+  box-sizing: border-box;
+  display: block;
+}
+table div {
+  display: flex;
+  justify-content: center;
+}
+table label {
+  width: fit-content;
+  user-select: none;
+}
+.radio {
+  width: fit-content;
+}
+.linha-selecionada {
+  background-color: rgb(66, 135, 214);
+  color: white;
+}
+
+tbody:focus {
+  outline: none;
+}
+
+/* tamanho especifico de cada coluna */
+table { 
+  table-layout: fixed; 
+  word-wrap: break-word;
+}
+.th-select-marca {width: 15%;}
+.th-input-referencia {width: 15%;}
+.th-select-pino {width: 15%;}
+.th-select-lado { width: 15%;}
+.th-input-descricao { width: 40%;}
+
+
+
+/* view */
+.view {
+  width: 350px;
+  background-color: green;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+/* imagem container */
+.imagem-container {
+  width: 100%;
+  height: 200px;
+  background-color: yellowgreen;
+  user-select: none; /* clique duplo nao deixa mais a imagem azul */
+}
+.imagem {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  
+}
+img {
+  width: 100%;
+  box-sizing: border-box;
+  object-fit: contain ;
+}
+.display-menu {
+  height: 90%;
+  display: flex;
+  align-items: center;
+}
+.fracao-imagem {
+  height: 10%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.botao-img {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.botao-img i{
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.botao-img:hover {
+  background-color: rgb(251, 38, 38);
+}
+.imagem {
+  background-color: white;
+}
+
+/* texto */
+.view .texto {
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.texto > div {
+  margin: 5px 0;
+  background-color: blanchedalmond;
+}
+
+.marca-ref {
+  padding: 0 5px;
+}
+
+.observacoes {
+  color: rgb(175, 3, 3);
+  font-weight: bold;
+  padding: 0 5px;
+}
+
+.aplicacoes {
+  flex: 1;
+  overflow: auto;
+  min-height: 0;
+  padding: 0 5px;
+  padding-bottom: 10px;
+  
+}
+.aplicacoes div:hover {
+  background-color: rgba(0, 0, 0, 0.336);
+}
+.nome-montadora {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.modelo-destaque {
+  font-weight: bold;
+  color: rgb(175, 3, 3);
+}
+
+/* fullscreen */
+
+.fullscreen {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;     /* sempre em relação à tela */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0,0,0,0.7); /* exemplo: fundo escuro transparente */
+  z-index: 9999;       /* fica na frente de tudo */
+  color: white;
+  user-select: none;
+}
+.esconder {
+  display: none;
+}
+.fullscreen img {
+  width: fit-content  ;
+  max-width: 80%;
+  max-height: 95%;
+}
+.fullscreen > div {
+  display: flex;
+  align-items: center;
+  background-color: rgb(91, 91, 33);
+}
+.btn-esq div, .btn-dir div{
+  width: 40px;
+  height: 40px;
+  margin: 0 20px;
+  background-color: pink;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  color: black;
+  cursor: pointer;
+}
+.fullscreen i{
+  cursor: pointer;
+}

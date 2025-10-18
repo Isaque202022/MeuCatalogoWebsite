@@ -1,0 +1,15 @@
+* {
+  padding: 0;
+  margin: 0;
+  cursor: default;
+  font-family: Arial;
+}
+.container{
+  display: flex;
+}
+body {
+  overflow-x: hidden;
+}
+
+
+/* content */

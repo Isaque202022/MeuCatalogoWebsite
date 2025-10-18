@@ -1,0 +1,132 @@
+/*
+.wrapper {
+  padding: 10px;
+  overflow-x: hidden;
+  overflow-y: auto; /* rolagem aplicada no wrapper 
+  width: 280px;     /* largura fixa 
+  height: 100vh;
+}
+
+.filtros-container {
+  position: sticky;
+  top: 0;
+  width: 100%;       largura total do wrapper 
+}
+*/
+
+.wrapper {
+  width: 250px;
+  position: sticky;
+  left: 0;
+  top: 0;
+  height: 99vh;
+  background-color: white;
+}
+.filtros-container {
+  background-color: white;
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+#filtro-ordenar {
+  padding-bottom: 20px;
+}
+#filtro-ordenar select{
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.filtro {
+  padding: 3px 10px;
+  user-select: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+.indentacao {
+  margin-left: 15px;
+}
+
+#medidas {
+  width: fit-content;
+}
+#medidas div{
+  display: flex;
+  align-items: center;
+}
+#medidas label {
+  flex: 1;
+  margin-right: 10px;
+}
+#medidas input {
+  width: 50px;
+  padding: 3px;
+}
+
+#select-montadora {
+  width: 100%;
+  padding: 3px;
+  box-sizing: border-box;
+}
+
+
+.fa-eraser {
+  cursor: pointer;
+  visibility: hidden;
+  font-size: 1.3rem;
+  margin-left: 10px;
+}
+
+h1 {
+  display: flex;
+  align-items: center;
+  height: fit-content;
+  font-size: 1.4rem;
+}
+.titulo {
+  cursor: pointer;
+  align-items: end;
+  height: fit-content;
+  padding: 0;
+}
+label {
+  user-select: none;
+  font-size: 1.2rem;
+}
+
+.esconder {
+  display: none;
+}
+
+/* pesquisa por montadora e carro */
+.selecionados {
+  width: 200px;
+  max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.selecionados div {
+  background: #d3c7c7;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2px;
+}
+.selecionados .xis{
+  color: red;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding-right: 6px;
+  font-weight: bold;
+}
+
+
+#filtro-montadora input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 3px;
+}

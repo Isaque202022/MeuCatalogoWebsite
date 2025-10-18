@@ -1,0 +1,10 @@
+#descricao-th div{
+    display: flex;
+    width: 100%;
+}
+#descricao-inp {
+    width: 70%;
+}
+label {
+    display: flex;
+}

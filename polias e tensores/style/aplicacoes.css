@@ -1,0 +1,118 @@
+.display-aplicacoes {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.767);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.display-aplicacoes > div {
+  height: 60%;
+  background-color: white;
+  padding: 10px;
+  
+}
+
+/* aplicacoes */
+.d-aplicacoes {
+  display: flex;
+  flex-direction: column;
+}
+.divisoria {
+  margin-top: 5px;
+  height: 10px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.767);
+}
+#divisoria-displays {
+  padding: 10px;
+  margin: 0;
+  height: 60%;
+  width: 0;
+  background-color: rgba(183, 43, 43, 0);
+}
+.table-container {
+  overflow: auto;
+  overflow-x: hidden;
+}
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.display-montadora {
+  border: none;
+  font-weight: 00;
+  color: rgb(5, 93, 134);
+  padding-top: 8px;
+}
+
+table th {
+  padding: 3px 4px;
+  font-size: 0.96rem;
+  text-align: left;
+  background-color: rgb(5, 93, 134);
+  color: white;
+}
+/* largura minima da coluna carro*/
+thead th:nth-child(1) {
+  min-width: 110px;
+}
+/* largura minima da coluna Ano*/
+thead th:nth-child(2) {
+  min-width: 90px;
+}
+/* largura minima da coluna Complemento*/
+thead th:nth-child(3) {
+  min-width: 130px;
+}
+table td{
+  border-bottom: 1.5px solid rgb(222, 222, 222);
+  padding: 3px 4px;
+  font-size: 0.86rem;
+}
+tr td:not(:first-child):not(:last-child) {
+  border-left: 1.5px solid rgb(222, 222, 222);
+  border-right: 1.5px solid rgb(222, 222, 222);
+}
+tr th:not(:first-child):not(:last-child) {
+  border-left: 1.5px solid rgb(222, 222, 222);
+  border-right: 1.5px solid rgb(222, 222, 222);
+}
+table thead {
+  position: sticky;
+  top: 0;
+  background-color: white;
+}
+.esconder {
+  display: none;
+}
+
+
+/* CONVERÇÕES */
+.d-conversoes {
+  display: flex;
+  flex-direction: column;
+}
+.lista-conversoes {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.lista-conversoes div {
+  padding-right: 20px;
+  margin-top: 3px;
+  font-size: 0.86rem;
+  min-width: 150px;
+}
+.marca {
+  padding: 3px 4px;
+  text-align: left;
+  background-color: rgb(5, 93, 134);
+  color: white;
+  font-size: 0.96rem;
+  font-weight: bold;
+}
