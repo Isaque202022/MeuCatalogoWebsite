@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Meu catalogo</title>
+    <!-- google fonts: Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        *{
+            font-family: Roboto;
+        }
+        h1 {
+            text-align: center;
+            padding: 0;
+            margin: 0;
+        }
+        .display {
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); /* 3 itens por linha */
+            gap: 10px;
+        }
+        a {
+            max-width: 300px;
+            text-decoration: none;
+            color: inherit;
+        }
+        .item{
+            box-shadow: 1px 1px 4px  rgba(0, 0, 0, 0.459);
+            /*border: 1px solid black;*/
+            width: 200px;
+            transition: transform 0.2s;
+            cursor: pointer;
+            margin: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .item:hover {
+            transform: scale(1.1)
+        }
+        img{
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+        }
+        h3 {
+            text-align: center;
+            height: 100%;
+        }
+        .titulo-item {
+            display: flex;
+            justify-content: center;
+            align-items: end;
+        }
+        label {
+            display: flex;
+            justify-content: center;
+        }
+        .esconder {
+            display: none;
+        }
+    </style>
+    <link rel="icon" href="../icone-pagina.png" type="image/x-icon">
+</head>
+<body>
+    <h1>Menu catálogos</h1>
+    <label for=""><input type="text" class="pesquisa" style="display: none;"></label>
+    <div class="display">
+        <div class="item">
+            <a href="../homocineticas e deslizantes/codigo/index.html">
+                <img src="imagens/homocineticas-deslizantes.png" alt="">
+                <div class="titulo-item"><h3>HOMOCINÉTICAS E DESLIZANTES</h3></div>
+            </a>
+        </div>
+        <div class="item">
+            <a href="../cilindro roda/codigo/index.html">
+                <img src="imagens/cilindro de roda.png" alt="">
+                <div class="titulo-item"><h3>CILINDRO DE RODA</h3></div>
+            </a>
+        </div>
+        <div class="item">
+            <a href="../impulsor de partida/codigo/index.html">
+                <img src="imagens/impulsor de partida.png" alt="">
+                <div class="titulo-item"><h3>IMPULSOR DE PARTIDA</h3></div>
+            </a>
+        </div>
+        <div class="item">
+            <a href="../porta-escova/codigo/index.html">
+                <img src="imagens/porta-escova.jpeg" alt="">
+                <div class="titulo-item"><h3>PORTA-ESCOVA</h3></div>
+            </a>
+        </div>
+        <div class="item">
+            <a href="../sensor de arrefecimento/codigo/index.html">
+                <img src="imagens/sensor arrefecimento.png" alt="">
+                <div class="titulo-item"><h3>SENSOR ARREFECIMENTO</h3></div>
+            </a>
+        </div>
+        <div class="item">
+            <a href="../atuador embreagem/codigo/index.html">
+                <img src="imagens/atuador.jpg" alt="">
+                <div class="titulo-item"><h3>ATUADOR DE EMBREAGEM</h3></div>
+            </a>
+        </div>
+        <div class="item">
+            <a href="../polias e tensores/index.html">
+                <img src="imagens/polia.png" alt="">
+                <div class="titulo-item"><h3>POLIAS E TENSORES</h3></div>
+            </a>
+        </div>
+        <div class="item">
+            <a href="../retentor/codigo/index.html">
+                <img src="imagens/retentor.jpg" alt="">
+                <div class="titulo-item"><h3>RETENTOR</h3></div>
+            </a>
+        </div>
+        <div class="item">
+            <a href="../rolamento/codigo/index.html">
+                <img src="imagens/rolamento.jpg" alt="">
+                <div class="titulo-item"><h3>ROLAMENTO</h3></div>
+            </a>
+        </div>
+        <div class="item">
+            <a href="../reparo/codigo/index.html">
+                <img src="imagens/reparo.jpg" alt="">
+                <div class="titulo-item"><h3>REPARO</h3></div>
+            </a>
+        </div>
+        <div class="item">
+            <a href="../termostatica/codigo/index.html">
+                <img src="imagens/termostatica.jpg" alt="">
+                <div class="titulo-item"><h3>VALVULA TERMOSTATICA</h3></div>
+            </a>
+        </div>
+        <div class="item">
+            <a href="../axial/index.html">
+                <img src="imagens/axial.webp" alt="">
+                <div class="titulo-item"><h3>AXIAL</h3></div>
+            </a>
+        </div>
+        <div class="item">
+            <a href="../pivo/index.html">
+                <img src="imagens/pivo.png" alt="">
+                <div class="titulo-item"><h3>PIVÔ</h3></div>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        const titulos = document.querySelectorAll('h3')
+        const input = document.querySelector('input')
+        input.focus()
+        input.addEventListener('keyup', (event)=>{
+            const texto = event.target.value
+            titulos.forEach(titulo => {
+                if (!titulo.textContent.toLowerCase().includes(texto.toLowerCase())){
+                    titulo.parentElement.parentElement.parentElement.classList.add('esconder')
+                } else {
+                    titulo.parentElement.parentElement.parentElement.classList.remove('esconder')
+                }
+            })
+        })
+
+        window.addEventListener("pageshow", function () {
+            input.value = "";
+        });
+        // pageshow garante que mesmo quando o usuário volta pelo histórico (botão voltar), o campo seja limpo.
+    </script>
+</body>
+</html>
