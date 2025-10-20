@@ -73,7 +73,7 @@ const produtos = [
     descricao: 'PALIO/STILO/ASTRA/CLIO/206 ',
     referencia: 'A171',
     marca: '',
-    arqImagem: '',
+    arqImagem: 'valeo-594351.png',
     linksExternos: [{url:'sulcarbon-a171.pdf',titulo:'SULCARBON PDF'}],
   },
   {
