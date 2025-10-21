@@ -124,7 +124,7 @@ let produtos = [
     descricao: 'COTOVELO FOX/POLO/GOL G5',
     referencia: '87163',
     marca: 'AJE',
-    arqImagem: '',
+    arqImagem: 'WISA7022.jpg',
     linksExternos: [{url:'',titulo:''}]
   },
   {
