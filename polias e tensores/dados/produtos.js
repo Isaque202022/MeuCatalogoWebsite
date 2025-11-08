@@ -5259,7 +5259,7 @@ const produtos = [
   externo: 56,
   interno: 0,
   altura: 25,
-  correia: ['dentada'],
+  correia: ['alternador','polia'],
   parede: ['liso','sem-aba'],
   material: ['metal'],
 
