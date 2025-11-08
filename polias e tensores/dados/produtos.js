@@ -5267,7 +5267,7 @@ const produtos = [
   referencia: '30202',
   imagens: ['schadek-30202-1.png','schadek-30202-2.png'],
 
-  descricao: 'argentino 1.6 16v',
+  descricao: 'POLIA DIRECAO CORSA',
   aplicacoes: [
     {
       montadora: 'fiat',
