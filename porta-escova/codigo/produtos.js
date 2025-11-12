@@ -1,5 +1,12 @@
 const produtos = [
   {
+    descricao: 'COMPASS/RENEGADE/TORO DIESEL',
+    referencia: 'A226',
+    marca: 'SULCARBON',
+    arqImagem: 'A-226-12V.jpg',
+    linksExternos: [{url:'',titulo:''}],
+  },
+  {
     descricao: 'AGILE/ASTRA/ZAFIRA/MONZA/STRADA',
     referencia: '149/4',
     marca: '',
