@@ -2608,7 +2608,7 @@ const produtos = [
     {
       montadora: 'volkswagen',
       modelo: 'saveiro',
-      complemento: 'hidr 2010/2022 le',
+      complemento: 'hidr 2010/2022 ld',
     },
     {
       montadora: 'volkswagen',
