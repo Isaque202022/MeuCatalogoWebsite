@@ -9221,18 +9221,18 @@ polia 6pk 76ext-22alt
   ],
 },
 {
-  externo: 0,
-  interno: 0,
-  altura: 0,
-  correia: [''],
-  parede: [''],
-  material: [''],
+  externo: 60.5,
+  interno: 17,
+  altura: 26,
+  correia: ['alternador','polia'],
+  parede: ['liso','sem-aba'],
+  material: ['plastico'],
 
   marca: 'zen',
   referencia: '12838',
-  imagens: [''],
+  imagens: ['zen-12906.png'],
 
-  descricao: '',
+  descricao: 'LOGAN/KANGOO/SCENI 1.6 16V',
   aplicacoes: [
     {
       montadora: "Nissan",
