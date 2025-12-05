@@ -3210,11 +3210,212 @@ const produtos = [
   ],
   referenciasCruzadas: [
     {marca:"skf",codigos:["vkm4808"]},
+    {marca:"schadek",codigos:["30049",'90001379']},
     {marca:'dayco',codigos:['dyv802']},
     {marca:'gates',codigos:['t39056']},
     {marca:'ina',codigos:['531085410']},
     {marca:'nytron',codigos:['1154']},
     {marca:'renault',codigos:['8200136224']},
+  ],
+},
+{
+  externo: 56,
+  interno: 10,
+  altura: 21,
+  correia: ['alternador','polia'],
+  parede: ['liso','sem-aba'],
+  material: ['plastico','metal'],
+
+  marca: 'schadek',
+  referencia: '30049',
+  imagens: ['skf-vkm4808-1.png','skf-vkm4808-2.png'],
+
+  descricao: 'clio/sandero',
+  aplicacoes: [
+    {
+  montadora: "Renault",
+  modelo: "Clio",
+  ano: "2000 - 2002",
+  complemento: "1.0 8V"
+},
+{
+  montadora: "Renault",
+  modelo: "Clio",
+  ano: "2000 - 2005",
+  complemento: "1.0 16V D4D"
+},
+{
+  montadora: "Renault",
+  modelo: "Kangoo",
+  ano: "2000 - EM DIANTE",
+  complemento: "1.6 "
+},
+{
+  montadora: "Renault",
+  modelo: "Kangoo",
+  ano: "2007 - EM DIANTE",
+  complemento: "1.6 "
+},
+{
+  montadora: "Renault",
+  modelo: "Logan",
+  ano: "2007 - EM DIANTE",
+  complemento: "1.0 "
+},
+{
+  montadora: "Renault",
+  modelo: "Sandero",
+  ano: "2007 - EM DIANTE",
+  complemento: "1.0 "
+},
+{
+  montadora: "Renault",
+  modelo: "Twingo",
+  ano: "1996 - 2001",
+  complemento: "1.2 D7F"
+},
+  ],
+  referenciasCruzadas: [
+    {marca:"schadek",codigos:["30049",'90001379']},
+    {marca:"skf",codigos:["vkm4808"]},
+    {marca:"CONTINENTAL",codigos:["V58639"]},
+    {marca:"DAYCO",codigos:["DYV802/APV2104"]},
+    {marca:"INDISA",codigos:["T951154"]},
+    {marca:"NYTRON",codigos:["1154"]},
+    {marca:"RANALLE",codigos:["R4617"]},
+    {marca:"RENAULT",codigos:["7700868201","7700870795","8200040155","8200136224","8200434732","8200875156","8201008780"]},
+    {marca:"ROLTENS",codigos:["RT8407"]},
+    {marca:"ZEN",codigos:["12771"]},
+  ],
+},
+{
+  externo: 56,
+  interno: 10,
+  altura: 21,
+  correia: ['alternador','polia'],
+  parede: ['liso','sem-aba'],
+  material: ['plastico','metal'],
+
+  marca: 'zen',
+  referencia: '12771',
+  imagens: ['skf-vkm4808-1.png','skf-vkm4808-2.png'],
+
+  descricao: 'clio/sandero',
+  aplicacoes: [
+    {
+      montadora: "Renault",
+      modelo: "Clio",
+      ano: "2000...",
+      complemento: "1.0 16v"
+    },
+    {
+      montadora: "Renault",
+      modelo: "Clio",
+      ano: "2000...",
+      complemento: "1.0 8v"
+    },
+    {
+      montadora: "Renault",
+      modelo: "Kangoo",
+      ano: "2000...",
+      complemento: "1.0 16v"
+    },
+    {
+      montadora: "Renault",
+      modelo: "Logan",
+      ano: "2008...",
+      complemento: "1.0 16V"
+    },
+    {
+      montadora: "Renault",
+      modelo: "Twingo",
+      ano: "1993...",
+      complemento: "1.0 16V com AC"
+    },
+    {
+      montadora: "Renault",
+      modelo: "Twingo",
+      ano: "1993...",
+      complemento: "1.0 8V com AC"
+    },
+    {
+      montadora: "Renault",
+      modelo: "Twingo",
+      ano: "",
+      complemento: "1.1 D7F-700 Nafta"
+    },
+    {
+      montadora: "Renault",
+      modelo: "Twingo",
+      ano: "",
+      complemento: "1.1 D7F-700 Nafta"
+    },
+    {
+      montadora: "Renault",
+      modelo: "Twingo",
+      ano: "1993...",
+      complemento: "1.2 8V com AC"
+    },
+    {
+      montadora: "Renault",
+      modelo: "Twingo",
+      ano: "",
+      complemento: "1.2 D7F"
+    },
+    {
+      montadora: "Renault",
+      modelo: "Twingo",
+      ano: "",
+      complemento: "Access + D7F Gasolina"
+    },
+    {
+      montadora: "Renault",
+      modelo: "Twingo",
+      ano: "",
+      complemento: "Access D7F Gasolina"
+    },
+    {
+      montadora: "Renault",
+      modelo: "Twingo",
+      ano: "",
+      complemento: "Fase II D7F Gasolina"
+    },
+    {
+      montadora: "Renault",
+      modelo: "Twingo",
+      ano: "",
+      complemento: "Fase III D7F Gasolina"
+    },
+    {
+      montadora: "Renault",
+      modelo: "Twingo",
+      ano: "",
+      complemento: "SportIF D7F Gasolina"
+    },
+    {
+      montadora: "Renault",
+      modelo: "Twingo",
+      ano: "",
+      complemento: "U Authentique D7F Gasolina"
+    },
+  ],
+  referenciasCruzadas: [
+    {marca:"ZEN",codigos:["12771"]},
+    {marca:"schadek",codigos:["30049",'90001379']},
+    {marca:"skf",codigos:["vkm4808"]},
+    {marca:"CONTINENTAL",codigos:["V58639"]},
+    {marca:"DAYCO",codigos:["DYV802","APV2104"]},
+    {marca:"INDISA",codigos:["T951154"]},
+    {marca:"NYTRON",codigos:["1154"]},
+    {marca:"RANALLE",codigos:["R4617"]},
+    {marca:"RENAULT",codigos:["7700868201","7700870795","8200040155","8200136224","8200434732","8200875156","8201008780"]},
+    {marca:"ROLTENS",codigos:["RT8407"]},
+    {marca:"Cobra",codigos:["6222"]},
+    {marca:"Gates",codigos:["T39056"]},
+    {marca:"Gueparts",codigos:["5045"]},
+    {marca:"INA",codigos:["531085410"]},
+    {marca:"Ranalle",codigos:["R4617"]},
+    {marca:"Rolt",codigos:["1410"]},
   ],
 },
 {
@@ -5070,7 +5271,8 @@ const produtos = [
     },
   ],
   referenciasCruzadas: [
-    {marca:"skf",codigos:["vkm36031",'VKM 4802']},
+    {marca:"skf",codigos:["vkm36031",'VKM4802']},
+    {marca:"ZEN",codigos:["12838"]},
     {marca:'Dayco',codigos:['APV2159']},
     {marca:'Gates',codigos:['T36176']},
     {marca:'GM',codigos:['44 10 595','93160256']},
@@ -5259,7 +5461,7 @@ const produtos = [
   externo: 56,
   interno: 0,
   altura: 25,
-  correia: ['alternador','polia'],
+  correia: ['alternadora','polia'],
   parede: ['liso','sem-aba'],
   material: ['metal'],
 
@@ -5270,27 +5472,119 @@ const produtos = [
   descricao: 'POLIA DIRECAO CORSA',
   aplicacoes: [
     {
-      montadora: 'fiat',
+      montadora: "Chevrolet",
+      modelo: "Agile",
+      ano: "2009 - EM DIANTE",
+      complemento: "1.4 "
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Astra",
+      ano: "1997 - EM DIANTE",
+      complemento: "1.8 "
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Astra",
+      ano: "1997 - EM DIANTE",
+      complemento: "2.0 "
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Astra",
+      ano: "1997 - EM DIANTE",
+      complemento: "2.2 "
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Corsa",
+      ano: "2003 - EM DIANTE",
+      complemento: "1.8 "
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Meriva",
+      ano: "2004 - EM DIANTE",
+      complemento: "1.8 "
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Montana",
+      ano: "2002 - EM DIANTE",
+      complemento: "1.8 "
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Prisma",
+      ano: "2004 - EM DIANTE",
+      complemento: "1.4 "
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Spin",
+      ano: "2009 - EM DIANTE",
+      complemento: "1.8 "
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Vectra",
+      ano: "1997 - EM DIANTE",
+      complemento: "2.0 "
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Vectra",
+      ano: "1997 - EM DIANTE",
+      complemento: "2.2 "
+    },
+    {
+      montadora: 'Fiat',
       modelo: 'Doblo',
       ano: '2003 em diante',
       complemento: '1.8',
     },
     {
-      montadora: 'fiat',
+      montadora: 'Fiat',
       modelo: 'Idea',
       ano: '2006 em diante',
       complemento: '1.8',
     },
+    {
+      montadora: "Fiat",
+      modelo: "Palio",
+      ano: "2004 - EM DIANTE",
+      complemento: "1.8 "
+    },
+    {
+      montadora: "Fiat",
+      modelo: "Siena",
+      ano: "2004 - EM DIANTE",
+      complemento: "1.8 "
+    },
+    {
+      montadora: "Fiat",
+      modelo: "Stilo",
+      ano: "2004 - EM DIANTE",
+      complemento: "1.8 "
+    },
+    {
+      montadora: "Fiat",
+      modelo: "Strada",
+      ano: "2008 - EM DIANTE",
+      complemento: "1.8 "
+    },
   ],
   referenciasCruzadas: [
-    {marca:"schadek",codigos:["30202",'90001542']},
+    {marca:"schadek",codigos:["30202",'90001542','30272','90001612']},
     {marca:"zen",codigos:["12761"]},
-    {marca:"fiat",codigos:["55210364"]},
-    {marca:"nytron",codigos:["7709"]},
-    {marca:"dayco",codigos:["APV2863"]},
+    {marca:"fiat - chevrolet",codigos:["55210364",'"93302612"']},
+    {marca:"nytron",codigos:["7709","7795"]},
+    {marca:"dayco",codigos:["APV2863","APV2864","DYV751"]},
     {marca:"ranalle",codigos:["R4390"]},
-    {marca:"roltens",codigos:["RT6762"]},
-    {marca:"skf",codigos:["VKM4754"]},
+    {marca:"roltens",codigos:["RT6762","RT6735"]},
+    {marca:"skf",codigos:["VKM4754","VKM4753"]},
+    {marca:"CONTINENTAL",codigos:["V58608"]},
+    {marca:"INDISA",codigos:["T257795"]},
   ],
 },
 {
@@ -5762,7 +6056,7 @@ const produtos = [
     },
   ],
   referenciasCruzadas: [
-    {marca:"nytron",codigos:["7795"]},
+    {marca:"nytron",codigos:["7795",'7709']},
     {marca:'cobra',codigos:['9330']},
     {marca:'contitech',codigos:['v58608']},
     {marca:'dayco',codigos:['apv2864','dyv751']},
@@ -5771,7 +6065,7 @@ const produtos = [
     {marca:'indisa',codigos:['257795']},
     {marca:'ranalle',codigos:['r4390']},
     {marca:'roltens',codigos:['rt6735']},
-    {marca:'schadek',codigos:['90001612','30272']},
+    {marca:'schadek',codigos:['90001612','30272','90001542','30202']},
     {marca:'vetor',codigos:['vto8058']},
     {marca:'zen',codigos:['12761']},
   ],
@@ -9757,7 +10051,7 @@ polia 6pk 76ext-22alt
     {marca:"Rolt",codigos:["1408","2179"]},
     {marca:"Roltens",codigos:["RT8392","RT8414"]},
     {marca:"Ruville",codigos:["55571"]},
-    {marca:"SKF",codigos:["VKM4802"]},
+    {marca:"SKF",codigos:["VKM4802",'VKM36031']},
     {marca:"Suzuki",codigos:["1752284A00","4917084A80","4917084A80000"]},
     {marca:"Vauxhall",codigos:["9198527","93160256"]},
   ],
@@ -10358,6 +10652,7 @@ polia 6pk 76ext-22alt
   ],
   referenciasCruzadas: [
     {marca:"ZEN",codigos:["12761"]},
+    {marca:"schadek",codigos:["30202",'90001542','30272','90001612']},
     {marca:"Cobra",codigos:["9330"]},
     {marca:"ContiTech",codigos:["V58608"]},
     {marca:"Dayco",codigos:["APV2864","DYV751"]},
@@ -11154,6 +11449,1664 @@ polia 6pk 76ext-22alt
     {marca:'VETOR',codigos:['VTO 7078']},
     {marca:'VOLKSWAGEN',codigos:['030109243L','030109243M','030109243N','030109243P','30109243R']},
     {marca:'ZEN',codigos:['12772']},
+  ],
+},
+{
+  externo: 70,
+  interno: 17,
+  altura: 26,
+  correia: ['alternador','polia'],
+  parede: ['liso','sem-aba'],
+  material: ['plastico'],
+
+  marca: 'zen',
+  referencia: '12764',
+  imagens: ['zen-12906.png'],
+
+  descricao: 'FOX/POLO/ONIX',
+  aplicacoes: [
+    {
+      montadora: "Ford",
+      modelo: "Courier",
+      ano: "1994...1999",
+      complemento: "1.0 8V Endura com DH"
+    },
+    {
+      montadora: "Ford",
+      modelo: "Courier",
+      ano: "1994...1999",
+      complemento: "1.3 8V Endura com DH"
+    },
+    {
+      montadora: "Ford",
+      modelo: "Courier",
+      ano: "",
+      complemento: "1.6 Zetec Rocam 1.6 SOHC (CLKB) Nafta"
+    },
+    {
+      montadora: "Ford",
+      modelo: "EcoSport",
+      ano: "",
+      complemento: "1.6 8V Zetec Rocam (CDJC) Nafta"
+    },
+    {
+      montadora: "Ford",
+      modelo: "EcoSport",
+      ano: "",
+      complemento: "FreeStyle Zetec Rocam 1.6 (CDJC) Gasolina"
+    },
+    {
+      montadora: "Ford",
+      modelo: "EcoSport",
+      ano: "",
+      complemento: "Zetec Rocam 1.6 (CDJC) Gasolina"
+    },
+    {
+      montadora: "Ford",
+      modelo: "Escort",
+      ano: "",
+      complemento: "1.6 Zetec Rocam 1.6 SOHC (L1K) Nafta"
+    },
+    {
+      montadora: "Ford",
+      modelo: "Fiesta",
+      ano: "1994...1999",
+      complemento: "1.0 8V Endura com DH"
+    },
+    {
+      montadora: "Ford",
+      modelo: "Fiesta",
+      ano: "1994...1999",
+      complemento: "1.3 8V Endura com DH"
+    },
+    {
+      montadora: "Ford",
+      modelo: "Fiesta",
+      ano: "",
+      complemento: "1.6 8V Zetec Rocam 1.6 SOHC (CDJA/C) Nafta"
+    },
+    {
+      montadora: "Ford",
+      modelo: "Fiesta",
+      ano: "",
+      complemento: "1.6 Zetec Rocam 1.6 SOHC (L1PY) Nafta"
+    },
+    {
+      montadora: "Ford",
+      modelo: "Focus",
+      ano: "",
+      complemento: "1.6 8V Zetec Rocam 1.6 (FYDA) Nafta"
+    },
+    {
+      montadora: "Ford",
+      modelo: "Focus",
+      ano: "",
+      complemento: "Zetec Rocam 1.6 (FYDA) Gasolina"
+    },
+    {
+      montadora: "Ford",
+      modelo: "Ka",
+      ano: "1997...1999",
+      complemento: "1.0 8V Endura com AC"
+    },
+    {
+      montadora: "Ford",
+      modelo: "Ka",
+      ano: "",
+      complemento: "1.0 Zetec Rocam 1.0 (C4C) Nafta"
+    },
+    {
+      montadora: "Ford",
+      modelo: "Ka",
+      ano: "",
+      complemento: "1.6 Zetec Rocam 1.6 SOHC (CCB) Nafta"
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Cobalt",
+      ano: "2017...",
+      complemento: "1.8 8V"
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Onix",
+      ano: "2017...",
+      complemento: "1.0 e 1.4 8V"
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Prisma",
+      ano: "2017...",
+      complemento: "1.0 8V"
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Spin",
+      ano: "2017...",
+      complemento: "1.8 8V "
+    },
+    {
+      montadora: "Seat",
+      modelo: "Ibiza",
+      ano: "2000...2003",
+      complemento: "1.0 8v"
+    },
+    {
+      montadora: "Seat",
+      modelo: "Ibiza",
+      ano: "2000...2003",
+      complemento: "1.6 8v"
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "Fox",
+      ano: "2003...",
+      complemento: "1.0 8V sem AC"
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "Fox",
+      ano: "2003...",
+      complemento: "1.6 8V sem AC"
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "Golf",
+      ano: "2002...",
+      complemento: "1.6 8v"
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "Polo",
+      ano: "2002...2014",
+      complemento: "1.6 8V"
+    },
+  ],
+  referenciasCruzadas: [
+    {marca:"zen",codigos:["12764"]},
+    {marca:"Cobra",codigos:["LH177026"]},
+    {marca:"ContiTech",codigos:["V55244"]},
+    {marca:"Dayco",codigos:["DYV610"]},
+    {marca:"Ford",codigos:["95WF19A216AC","96BF6A228AB","9L826B29A"]},
+    {marca:"Chevrolet",codigos:["24583134"]},
+    {marca:"Gueparts",codigos:["5049","5283"]},
+    {marca:"Nytron",codigos:["1160"]},
+    {marca:"Ranalle",codigos:["R4102","R4260","R4817"]},
+    {marca:"Rolt",codigos:["1221","2522"]},
+    {marca:"Roltens",codigos:["RT6029","RT7240"]},
+    {marca:"Seat",codigos:["030145299C","030145299F"]},
+    {marca:"SKF",codigos:["VKM4839"]},
+    {marca:"Vetor",codigos:["VT7080N"]},
+  ],
+},
+{
+  externo: 59,
+  interno: 0,
+  altura: 22,
+  correia: ['dentada'],
+  parede: ['liso','sem-aba'],
+  material: ['metal'],
+
+  marca: 'zen',
+  referencia: '12770',
+  imagens: ['ina-5310273300a1-1.png'],
+
+  descricao: 'corsa/meriva 1.8 8v',
+  aplicacoes: [
+    {
+      montadora: "Fiat",
+      modelo: "Doblo",
+      ano: "10/2004...2011",
+      complemento: "1.8 8V"
+    },
+    {
+      montadora: "Fiat",
+      modelo: "Doblo",
+      ano: "10/2004...",
+      complemento: "1.8 8v Flex"
+    },
+    {
+      montadora: "Fiat",
+      modelo: "Idea",
+      ano: "10/2004...",
+      complemento: "1.8 8v"
+    },
+    {
+      montadora: "Fiat",
+      modelo: "Idea",
+      ano: "2006...2010",
+      complemento: "1.8 8V"
+    },
+    {
+      montadora: "Fiat",
+      modelo: "Idea",
+      ano: "10/2004...",
+      complemento: "1.8 8v Flex"
+    },
+    {
+      montadora: "Fiat",
+      modelo: "Palio",
+      ano: "10/2004...",
+      complemento: "1.8 8v Flex"
+    },
+    {
+      montadora: "Fiat",
+      modelo: "Palio",
+      ano: "10/2004...",
+      complemento: "1.8 R 8V Flex"
+    },
+    {
+      montadora: "Fiat",
+      modelo: "Palio Weekend",
+      ano: "10/2004...",
+      complemento: "1.8 8v Flex"
+    },
+    {
+      montadora: "Fiat",
+      modelo: "Palio Weekend",
+      ano: "10/2004...",
+      complemento: "1.8 R 8V Flex"
+    },
+    {
+      montadora: "Fiat",
+      modelo: "Punto",
+      ano: "10/2004...",
+      complemento: "1.8 8v Flex"
+    },
+    {
+      montadora: "Fiat",
+      modelo: "Siena",
+      ano: "10/2004...",
+      complemento: "1.8 8v Flex"
+    },
+    {
+      montadora: "Fiat",
+      modelo: "Siena",
+      ano: "10/2004...",
+      complemento: "1.8 R 8V Flex"
+    },
+    {
+      montadora: "Fiat",
+      modelo: "Stilo",
+      ano: "10/2004...",
+      complemento: "1.8 8v Flex"
+    },
+    {
+      montadora: "Fiat",
+      modelo: "Strada",
+      ano: "10/2004...",
+      complemento: "1.8 8V Flex"
+    },
+    {
+      montadora: "Fiat",
+      modelo: "Strada",
+      ano: "10/2004...",
+      complemento: "1.8 R 8V Flex"
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Agile",
+      ano: "2009...",
+      complemento: "1.4 8v Flex"
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Agile",
+      ano: "",
+      complemento: "1.4 8V X14YX Nafta"
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Astra",
+      ano: "1999...",
+      complemento: "2.0 8v"
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Blazer",
+      ano: "1995...2000",
+      complemento: "2.2 8V"
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Blazer",
+      ano: "2001...2013",
+      complemento: "2.4 8V"
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Celta",
+      ano: "2007...",
+      complemento: "1.0 8V VHC Flex"
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Celta",
+      ano: "2007...",
+      complemento: "1.4 8V VHC Flex"
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Cobalt",
+      ano: "2012...",
+      complemento: "1.4 8V"
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Cobalt",
+      ano: "2013...",
+      complemento: "1.8 8V"
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Corsa",
+      ano: "2006...",
+      complemento: "1.0 8V VHC Flex"
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Corsa",
+      ano: "2006...",
+      complemento: "1.4 8V VHC Flex"
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Corsa",
+      ano: "",
+      complemento: "1.4 8V X14Y Nafta"
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Corsa",
+      ano: "2005...",
+      complemento: "1.8 8V Flex"
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Ipanema",
+      ano: "1996...1998",
+      complemento: "2.0 8V"
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Kadett",
+      ano: "1996...1998",
+      complemento: "2.0 8V"
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Meriva",
+      ano: "2005...",
+      complemento: "1.4 8V Flex"
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Meriva",
+      ano: "2005...",
+      complemento: "1.8 8V Flex"
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Montana",
+      ano: "2005...",
+      complemento: "1.4 8V Flex"
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Montana",
+      ano: "2005...",
+      complemento: "1.8 8V Flex"
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Montana",
+      ano: "",
+      complemento: "1.8 8V X14Y Nafta"
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Monza",
+      ano: "1996...1998",
+      complemento: "2.0 8V"
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Omega",
+      ano: "1992...10/1994",
+      complemento: "2.0 8V"
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Onix",
+      ano: "2012...",
+      complemento: "1.0 8V"
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Onix",
+      ano: "2012...",
+      complemento: "1.4 8V"
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Onix",
+      ano: "",
+      complemento: "1.4 8V AT SPE-4 Nafta"
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Onix",
+      ano: "",
+      complemento: "1.4 8V MT SPE-4 Nafta"
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Onix",
+      ano: "",
+      complemento: "1.4 8V SPE-4 Gasolina"
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Onix",
+      ano: "",
+      complemento: "LTZ 1-4 SPE-4 Gasolina"
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Onix",
+      ano: "",
+      complemento: "LTZ SPE Gasolina"
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Prisma",
+      ano: "",
+      complemento: "1.4 8V AT SPE-4 Nafta"
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Prisma",
+      ano: "",
+      complemento: "1.4 8V MT SPE-4 Nafta"
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Prisma",
+      ano: "2007...",
+      complemento: "1.4 8V VHC Flex"
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Prisma",
+      ano: "",
+      complemento: "LT SPE-4 Gasolina"
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Prisma",
+      ano: "",
+      complemento: "LTZ/1.4 SPE-4 Gasolina"
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "S10",
+      ano: "1995...2000",
+      complemento: "2.2 8V"
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "S10",
+      ano: "2001...",
+      complemento: "2.4 8V"
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Spin",
+      ano: "2012...",
+      complemento: "1.8 8V"
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Suprema",
+      ano: "1992...1994",
+      complemento: "2.0 8V"
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Suprema",
+      ano: "1995...1997",
+      complemento: "2.2 8V"
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Vectra",
+      ano: "1993...2011",
+      complemento: "2.0 8V"
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Vectra",
+      ano: "1998...2002",
+      complemento: "2.2 8V"
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Zafira",
+      ano: "2001...2012",
+      complemento: "2.0 8v"
+    },
+  ],
+  referenciasCruzadas: [
+    {marca:"zen",codigos:["12770"]},
+    {marca:"Cobra",codigos:["6009LH"]},
+    {marca:"ContiTech",codigos:["V55315"]},
+    {marca:"Dayco",codigos:["ATB2216","DYT303"]},
+    {marca:"Fiat",codigos:["7085784","7086687"]},
+    {marca:"Chevrolet",codigos:["90411769","90528200","90530124","91580003","93353848"]},
+    {marca:"Gueparts",codigos:["5636"]},
+    {marca:"INA",codigos:["531027330","F234394"]},
+    {marca:"Nytron",codigos:["7796"]},
+    {marca:"Ranalle",codigos:["R4305"]},
+    {marca:"Rolt",codigos:["1525"]},
+    {marca:"Roltens",codigos:["RT6009","RT6009LH"]},
+    {marca:"SKF",codigos:["VKM15402L"]},
+  ],
+},
+{
+  externo: 62,
+  interno: 0,
+  altura: 22,
+  correia: ['dentada'],
+  parede: ['liso','sem-aba'],
+  material: ['metal','plastico'],
+
+  marca: 'schadek',
+  referencia: '30223',
+  imagens: ['mide-mdte021-1.png','mide-mdte021-2.jpg'],
+
+  descricao: 'GOL MI/POWER 8V',
+  aplicacoes: [
+    {
+      montadora: "Audi",
+      modelo: "A3",
+      ano: "2001 - 2007",
+      complemento: "1.6 "
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "Fox",
+      ano: "2004 - EM DIANTE",
+      complemento: "1.0 "
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "Fox",
+      ano: "2004 - EM DIANTE",
+      complemento: "1.6 "
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "Gol",
+      ano: "2001 - EM DIANTE",
+      complemento: "1.0 "
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "Gol",
+      ano: "2001 - EM DIANTE",
+      complemento: "1.6 "
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "Golf",
+      ano: "2002 - EM DIANTE",
+      complemento: "1.6 "
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "Kombi",
+      ano: "2006 - 2013",
+      complemento: "1.4 (EA111)"
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "Polo",
+      ano: "2002 - EM DIANTE",
+      complemento: "1.6 "
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "Saveiro",
+      ano: "2009 - EM DIANTE",
+      complemento: "1.6 "
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "Voyage",
+      ano: "2009 - EM DIANTE",
+      complemento: "1.0 "
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "Voyage",
+      ano: "2009 - EM DIANTE",
+      complemento: "1.6 "
+    },
+  ],
+  referenciasCruzadas: [
+    {marca:"schadek",codigos:["30223",'90001563']},
+    {marca:"AUDI - VOLKSWAGEN",codigos:["030.109.243L","030.109.243M","030.109.243N"]},
+    {marca:"CONTINENTAL",codigos:["V55719"]},
+    {marca:"DAYCO",codigos:["ATB2248","DYT205"]},
+    {marca:"INDISA",codigos:["T457736"]},
+    {marca:"NYTRON",codigos:["7736"]},
+    {marca:"RANALLE",codigos:["R4152"]},
+    {marca:"ROLTENS",codigos:["RT0817"]},
+    {marca:"SKF",codigos:["VKM11107L"]},
+    {marca:"ZEN",codigos:["12773"]},
+  ],
+},
+{
+  externo: 75,
+  interno: 8,
+  altura: 23,
+  correia: ['alternador','polia'],
+  parede: ['6pk'],
+  material: ['plastico'],
+
+  marca: 'schadek',
+  referencia: '30097',
+  imagens: ['nytron-1223-1.png','nytron-1223-2.png'],
+
+  descricao: 'CORSA/CELTA C/AR',
+  aplicacoes: [
+    {
+      montadora: "Chevrolet",
+      modelo: "Celta",
+      ano: "2001 - 2016",
+      complemento: "1.0 COM A/C"
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Celta",
+      ano: "2001 - 2016",
+      complemento: "1.4 COM A/C"
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Corsa",
+      ano: "1994 - 2002",
+      complemento: "1.0 "
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Corsa",
+      ano: "1994 - 2002",
+      complemento: "1.4 "
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Corsa",
+      ano: "2002 - EM DIANTE",
+      complemento: "1.6 "
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Omega",
+      ano: "1992 - 1994",
+      complemento: "3.0 12V"
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Prisma",
+      ano: "2006 - EM DIANTE",
+      complemento: "1.0 "
+    },
+    {
+      montadora: "Chevrolet",
+      modelo: "Prisma",
+      ano: "2006 - EM DIANTE",
+      complemento: "1.4 "
+    },
+  ],
+  referenciasCruzadas: [
+    {marca:"schadek",codigos:["30097",'90001437']},
+    {marca:"CHEVROLET",codigos:["1340513","1340535","90409238"]},
+    {marca:"CONTINENTAL",codigos:["V55318"]},
+    {marca:"DAYCO",codigos:["DYV750/APV2122"]},
+    {marca:"INDISA",codigos:["T251223"]},
+    {marca:"NYTRON",codigos:["1223"]},
+    {marca:"RANALLE",codigos:["R4392"]},
+    {marca:"ROLTENS",codigos:["RT6798"]},
+    {marca:"SKF",codigos:["VKM35002H"]},
+    {marca:"ZEN",codigos:["12765"]},
+  ],
+},
+{
+  externo: 75,
+  interno: 17,
+  altura: 33,
+  correia: ['alternador','polia'],
+  parede: ['liso','sem-aba'],
+  material: ['metal'],
+
+  marca: 'schadek',
+  referencia: '30182',
+  imagens: ['schadek-30014-1.png','schadek-30014-2.png'],
+
+  descricao: 'hilux 2.8/3.0 05/',
+  aplicacoes: [
+    {
+      montadora: "Toyota",
+      modelo: "Hilux",
+      ano: "2005 - EM DIANTE",
+      complemento: "2.5 "
+    },
+    {
+      montadora: "Toyota",
+      modelo: "Hilux",
+      ano: "2005 - EM DIANTE",
+      complemento: "3.0 "
+    },
+    {
+      montadora: "Toyota",
+      modelo: "SW4",
+      ano: "2005 - EM DIANTE",
+      complemento: "3.0 "
+    },
+  ],
+  referenciasCruzadas: [
+    {marca:"schadek",codigos:["30182",'90001522']},
+    {marca:"DAYCO",codigos:["APV3012"]},
+    {marca:"INDISA",codigos:["T902063"]},
+    {marca:"NYTRON",codigos:["2063"]},
+    {marca:"RANALLE",codigos:["R4743"]},
+    {marca:"ROLTENS",codigos:["RT6412"]},
+    {marca:"SKF",codigos:["VKM4942"]},
+    {marca:"TOYOTA",codigos:["16620.0L020"]},
+    {marca:"ZEN",codigos:["12933"]},
+  ],
+},
+{
+  externo: 66,
+  interno: 0,
+  altura: 24,
+  correia: ['alternador','tensor'],
+  parede: ['liso','sem-aba'],
+  material: ['metal','plastico'],
+
+  marca: 'nytron',
+  referencia: '7822',
+  imagens: ['nytron-7782-1.png','nytron-7822-2.png'],
+
+  descricao: 'palio/strada fire',
+  aplicacoes: [
+    {
+      montadora: 'FIAT',
+      modelo: '500',
+      ano: '1999/2004',
+      complemento: '1.4 16V',
+    },
+    {
+      montadora: 'FIAT',
+      modelo: '500',
+      ano: '2012/...',
+      complemento: '1.4 16V TURBO / 8v EVO',
+    },
+    {
+      montadora: 'FIAT',
+      modelo: 'BRAVO T-JET',
+      ano: '2014/...',
+      complemento: '1.4 16V',
+    },
+    {
+      montadora: 'FIAT',
+      modelo: 'DOBLO',
+      ano: '',
+      complemento: 'C/ AR E DH 1.3 16V 1.4 8V',
+    },
+    {
+      montadora: 'FIAT',
+      modelo: 'FIORINO',
+      ano: '',
+      complemento: 'C/ AR E DH 1.3 FIRE 1.4 EVO',
+    },
+    {
+      montadora: 'FIAT',
+      modelo: 'GRAND SIENA',
+      ano: '2014/...',
+      complemento: 'C/ AR E DH',
+    },
+    {
+      montadora: 'FIAT',
+      modelo: 'IDEA',
+      ano: '2012/...',
+      complemento: 'C/ AR E DH 1.4 8V FIRE',
+    },
+    {
+      montadora: 'FIAT',
+      modelo: 'LINEA T-JET',
+      ano: '2005/2010',
+      complemento: '1.4 16V TURBO',
+    },
+    {
+      montadora: 'FIAT',
+      modelo: 'MOBI',
+      ano: '2009/...',
+      complemento: 'C/ AR E DH 1.0 8V EVO',
+    },
+    {
+      montadora: 'FIAT',
+      modelo: 'PALIO',
+      ano: '',
+      complemento: 'C/ AR E DH 1.0 1.3 1.4 FIRE E EVO',
+    },
+    {
+      montadora: 'FIAT',
+      modelo: 'PUNTO',
+      ano: '2008/...',
+      complemento: 'C/ AR E DH 1.4 8V FIRE',
+    },
+    {
+      montadora: 'FIAT',
+      modelo: 'PUNTO T-JET',
+      ano: '2009/2016',
+      complemento: '1.4 16V TURBO',
+    },
+    {
+      montadora: 'FIAT',
+      modelo: 'SIENA',
+      ano: '',
+      complemento: 'C/ AR E DH 1.0 1.3 1.4 FIRE E EVO',
+    },
+    {
+      montadora: 'FIAT',
+      modelo: 'STRADA',
+      ano: '2003/...',
+      complemento: 'C/ AR E DH 1.3 1.4',
+    },
+    {
+      montadora: 'FIAT',
+      modelo: 'UNO',
+      ano: '',
+      complemento: 'FIRE E EVO',
+    },
+  ],
+  referenciasCruzadas: [
+    {marca:"nytron",codigos:["7822",'1143 (REFIL)']},
+    {marca:"ALFA ROMEO",codigos:["46548452",'46756902','55232827']},
+    {marca:"COBRA",codigos:["6902"]},
+    {marca:"CONTITECH",codigos:["V85569"]},
+    {marca:"DAYCO",codigos:["APV1079","DYV010"]},
+    {marca:"FIAT",codigos:["46548452",'46756902','46782739','55191969','55195023','551950230','55232827','55242399']},
+    {marca:"FORD",codigos:["1535429"]},
+    {marca:"INA",codigos:['534006910','534006920','534010720']},
+    {marca:"INDISA",codigos:["357822"]},
+    {marca:"LANCIA",codigos:["46548452",'46756902','55232827']},
+    {marca:"OPEL",codigos:["1204298"]},
+    {marca:"RANALLE",codigos:["R4461"]},
+    {marca:"ROLTENS",codigos:["RT6763"]},
+    {marca:"RT6763",codigos:["90001603",'30263']},
+    {marca:"VETOR",codigos:["VTO 8124"]},
+    {marca:"ZEN",codigos:["13300"]},
+    {marca:"INDISA",codigos:["T357822"]},
+  ],
+},
+{
+  externo: 65,
+  interno: 0,
+  altura: 24,
+  correia: ['alternador','polia'],
+  parede: ['liso','sem-aba1'],
+  material: ['metal','plastico'],
+
+  marca: 'zen',
+  referencia: '13512',
+  imagens: [''],
+
+  descricao: 'ECOSPORT/FOCUS/TRANSIT 11/',
+  aplicacoes: [
+    {
+      montadora: '',
+      modelo: '',
+      ano: '',
+      complemento: '',
+    },
+  ],
+  referenciasCruzadas: [
+    {marca:"zen",codigos:["13512"]},
+  ],
+},
+{
+  externo: 60,
+  interno: 0,
+  altura: 25,
+  correia: ['dentada'],
+  parede: ['liso','sem-aba'],
+  material: ['plastico','metal'],
+
+  marca: 'zen',
+  referencia: '13201',
+  imagens: ['zen-13201-1.png','zen-13201-2.png','zen-13201-3.png'],
+
+  descricao: '206/207/c3 1.4',
+  aplicacoes: [
+    {
+      montadora: "Citroën",
+      modelo: "Berlingo",
+      ano: "",
+      complemento: "1.4I TU3JP (KFX) Nafta"
+    },
+    {
+      montadora: "Citroën",
+      modelo: "C3",
+      ano: "2002...",
+      complemento: " 1.4 8V"
+    },
+    {
+      montadora: "Citroën",
+      modelo: "C3",
+      ano: "2012...",
+      complemento: " 1.5 8V"
+    },
+    {
+      montadora: "Citroën",
+      modelo: "C3",
+      ano: "",
+      complemento: "1.4I TU3JP (KFV) Nafta"
+    },
+    {
+      montadora: "Citroën",
+      modelo: "XSara",
+      ano: "",
+      complemento: "TU3JP Gasolina"
+    },
+    {
+      montadora: "Citroën",
+      modelo: "ZX",
+      ano: "",
+      complemento: "1.4I TU3MC (KDX) Nafta"
+    },
+    {
+      montadora: "Peugeot",
+      modelo: "106",
+      ano: "",
+      complemento: "1.4I TU3JP (KFW) Nafta"
+    },
+    {
+      montadora: "Peugeot",
+      modelo: "205",
+      ano: "",
+      complemento: "1.4I TU3M (KDY/Z) Nafta"
+    },
+    {
+      montadora: "Peugeot",
+      modelo: "205",
+      ano: "",
+      complemento: "GT TU3M (KDY/Z) Gasolina"
+    },
+    {
+      montadora: "Peugeot",
+      modelo: "206",
+      ano: "2002...2007",
+      complemento: " 1.4 8V"
+    },
+    {
+      montadora: "Peugeot",
+      modelo: "206",
+      ano: "",
+      complemento: "1.4I TU3JP (KFW) Nafta"
+    },
+    {
+      montadora: "Peugeot",
+      modelo: "206",
+      ano: "",
+      complemento: "XR TU3JP (KFW) Gasolina"
+    },
+    {
+      montadora: "Peugeot",
+      modelo: "207",
+      ano: "2004...",
+      complemento: "1.4 8V"
+    },
+    {
+      montadora: "Peugeot",
+      modelo: "207",
+      ano: "",
+      complemento: "1.4I 8V TU3JP (KFW) Nafta"
+    },
+    {
+      montadora: "Peugeot",
+      modelo: "207",
+      ano: "",
+      complemento: "TU3JP (KFW) Gasolina"
+    },
+    {
+      montadora: "Peugeot",
+      modelo: "208",
+      ano: "2013...",
+      complemento: "1.5 8V"
+    },
+    {
+      montadora: "Peugeot",
+      modelo: "306",
+      ano: "1996...2001",
+      complemento: "1.4 8V"
+    },
+    {
+      montadora: "Peugeot",
+      modelo: "306",
+      ano: "",
+      complemento: "1.4I TU3JP/L3 (KFX) Nafta"
+    },
+    {
+      montadora: "Peugeot",
+      modelo: "306",
+      ano: "",
+      complemento: "XNA TU3JP/L3 (KFX) Gasolina"
+    },
+    {
+      montadora: "Peugeot",
+      modelo: "307",
+      ano: "",
+      complemento: "TU3JP Gasolina"
+    },
+    {
+      montadora: "Peugeot",
+      modelo: "Hoggar",
+      ano: "2010...2015",
+      complemento: "1.4 8V"
+    },
+    {
+      montadora: "Peugeot",
+      modelo: "Partner",
+      ano: "",
+      complemento: "1.4I TU3JP (KFX) Nafta"
+    },
+    {
+      montadora: "Peugeot",
+      modelo: "Partner",
+      ano: "",
+      complemento: "TU3JP (KFX) Gasolina"
+    },
+  ],
+  referenciasCruzadas: [
+    {marca:"zen",codigos:["13201"]},
+    {marca:"Citroën",codigos:["082990","96429298","9659394680"]},
+    {marca:"Cobra",codigos:["6041LH"]},
+    {marca:"ContiTech",codigos:["V55958"]},
+    {marca:"Dayco",codigos:["ATB1016"]},
+    {marca:"Gates",codigos:["T43023"]},
+    {marca:"Gueparts",codigos:["5560"]},
+    {marca:"INA",codigos:["531057210"]},
+    {marca:"Nytron",codigos:["7726"]},
+    {marca:"Peugeot",codigos:["082990"]},
+    {marca:"Ranalle",codigos:["R4509"]},
+    {marca:"Roltens",codigos:["RT8321"]},
+    {marca:"SKF",codigos:["VKM13253","VKM4759"]},
+  ],
+},
+{
+  externo: 60,
+  interno: 0,
+  altura: 21,
+  correia: ['dentada'],
+  parede: ['com-aba'],
+  material: ['metal'],
+
+  marca: 'zen',
+  referencia: '13285',
+  imagens: ['zen-13285-1.png','zen-13285-2.png'],
+
+  descricao: 'GOL/FOX 1.0 12V/ 1.6 16V',
+  aplicacoes: [
+    {
+      montadora: "Audi",
+      modelo: "A1",
+      ano: "2015...2018",
+      complemento: "1.0 TFSI"
+    },
+    {
+      montadora: "Audi",
+      modelo: "A1",
+      ano: "2012...2018",
+      complemento: "1.4 TFSI"
+    },
+    {
+      montadora: "Audi",
+      modelo: "A1",
+      ano: "",
+      complemento: "1.4 TFSI EA211 CZCA Nafta"
+    },
+    {
+      montadora: "Audi",
+      modelo: "A1",
+      ano: "2014...2018",
+      complemento: "1.4 TSI"
+    },
+    {
+      montadora: "Audi",
+      modelo: "A3",
+      ano: "2016...2017",
+      complemento: "1.0 TFSI"
+    },
+    {
+      montadora: "Audi",
+      modelo: "A3",
+      ano: "2013...2016",
+      complemento: "1.2 TFSI"
+    },
+    {
+      montadora: "Audi",
+      modelo: "A3",
+      ano: "2012...2016",
+      complemento: "1.4 TFSI"
+    },
+    {
+      montadora: "Audi",
+      modelo: "A3",
+      ano: "",
+      complemento: "1.4 TFSI EA211 Nafta"
+    },
+    {
+      montadora: "Audi",
+      modelo: "A3",
+      ano: "2014...2017",
+      complemento: "1.4 TSI"
+    },
+    {
+      montadora: "Audi",
+      modelo: "A3",
+      ano: "",
+      complemento: "1.4 TSI 122CV EA211 CZEA Nafta"
+    },
+    {
+      montadora: "Audi",
+      modelo: "A4",
+      ano: "2015...2019",
+      complemento: "1.4 TFSI"
+    },
+    {
+      montadora: "Audi",
+      modelo: "A5",
+      ano: "2016...2020",
+      complemento: "1.4 TFSI"
+    },
+    {
+      montadora: "Audi",
+      modelo: "Q2",
+      ano: "2016...2020",
+      complemento: "1.0 TFSI"
+    },
+    {
+      montadora: "Audi",
+      modelo: "Q2",
+      ano: "2016...",
+      complemento: "1.4 TFSI"
+    },
+    {
+      montadora: "Audi",
+      modelo: "Q3",
+      ano: "2015...",
+      complemento: "1.4  TFSI"
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "Beetle",
+      ano: "",
+      complemento: "1.4 TSI EA211 CTHD Nafta"
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "Cross Up!",
+      ano: "",
+      complemento: "1.0 12V EA211 Nafta"
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "CrossFox",
+      ano: "2015...",
+      complemento: "1.6 16V"
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "Fox",
+      ano: "2014...",
+      complemento: "1.0 12V"
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "Fox",
+      ano: "2014...",
+      complemento: "1.6 16V"
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "Gol",
+      ano: "2016...",
+      complemento: "1.0 12V"
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "Gol",
+      ano: "2014...",
+      complemento: "1.6 16V"
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "Golf",
+      ano: "2016...",
+      complemento: "1.0 12V TSI"
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "Golf",
+      ano: "2014...",
+      complemento: "1.4 16V TSI"
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "Golf",
+      ano: "",
+      complemento: "1.4 TSI AT EA211 CHPA Nafta"
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "Golf",
+      ano: "",
+      complemento: "1.4 TSI EA211 CHPA Nafta"
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "Golf",
+      ano: "2016...",
+      complemento: "1.6 16V"
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "Golf",
+      ano: "",
+      complemento: "1.6 16V MSI EA211 CWVA Nafta"
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "Golf",
+      ano: "",
+      complemento: "TSI Confortline EA211 CZDA Gasolina"
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "Jetta",
+      ano: "2016...",
+      complemento: "1.4 16V"
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "Nivus",
+      ano: "",
+      complemento: "1.0 TSI 200 TSI AT EA211 DHSA Nafta"
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "Polo",
+      ano: "2014...",
+      complemento: "1.0, 1.0 TSI, 1.2 TSI"
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "Polo",
+      ano: "2012...2017",
+      complemento: "1.4 TSI"
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "Polo",
+      ano: "2014...2017",
+      complemento: "1.6"
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "Saveiro",
+      ano: "2014...",
+      complemento: "1.6 16V"
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "Scirocco",
+      ano: "",
+      complemento: "1.4 TSI EA211 Nafta"
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "Spacecross",
+      ano: "2015...",
+      complemento: "1.6 16V"
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "SpaceFox",
+      ano: "2015...",
+      complemento: "1.6 16V"
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "T-Cross",
+      ano: "2018...",
+      complemento: "1.0 TSI 3cil "
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "T-Cross",
+      ano: "2018...",
+      complemento: "1.4 4cil "
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "Tiguan",
+      ano: "2016...",
+      complemento: "1.4 16V TSI"
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "Tiguan",
+      ano: "",
+      complemento: "1.4 250TSI DSG EA211 CZDA Nafta"
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "Tiguan",
+      ano: "",
+      complemento: "1.4 TSI DSG EA211 CZEA Nafta"
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "Up!",
+      ano: "2014...",
+      complemento: "1.0 12V"
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "Up!",
+      ano: "",
+      complemento: "1.0 12V EA211 Nafta"
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "Up!",
+      ano: "",
+      complemento: "1.0 12V I-Motion EA211 Nafta"
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "Up!",
+      ano: "2014...",
+      complemento: "1.0 12V TSI"
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "Up!",
+      ano: "",
+      complemento: "1.0 TSI EA211 Nafta"
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "Vento",
+      ano: "",
+      complemento: "1.4 TSI 250 DSG EA211 CHPA Nafta"
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "Vento",
+      ano: "",
+      complemento: "1.4 TSI AT EA211 CZDA Nafta"
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "Vento",
+      ano: "",
+      complemento: "1.4 TSI MT EA211 CZDA Nafta"
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "Virtus",
+      ano: "2018...",
+      complemento: "1.6 16V"
+    },
+    {
+      montadora: "Volkswagen",
+      modelo: "Voyage",
+      ano: "2016...",
+      complemento: "1.0 12V"
+    },
+  ],
+  referenciasCruzadas: [
+    {marca:"zen",codigos:["13285"]},
+    {marca:"Audi",codigos:["04C109479H","04C109479K","04E109479AA","04E109479B","04E109479H","04E109479T","05C109479A"]},
+    {marca:"Cobra",codigos:["6054LH"]},
+    {marca:"Gueparts",codigos:["5719"]},
+    {marca:"INA",codigos:["531088210"]},
+    {marca:"Ranalle",codigos:["R4158"]},
+    {marca:"Rolt",codigos:["2000"]},
+    {marca:"Roltens",codigos:["RT7071"]},
+    {marca:"Vetor",codigos:["VT8602"]},
+  ],
+},
+{
+  externo: 95.5,
+  interno: 17,
+  altura: 26,
+  correia: ['alternador','polia'],
+  parede: ['liso','sem-aba'],
+  material: ['plastico'],
+
+  marca: 'zen',
+  referencia: '13445',
+  imagens: ['zen-13445.jpg'],
+
+  descricao: ' HB20/I30/CRETA',
+  aplicacoes: [
+    {
+      montadora: "Hyundai",
+      modelo: "Creta",
+      ano: "2012...",
+      complemento: "1.6"
+    },
+    {
+      montadora: "Hyundai",
+      modelo: "Elantra",
+      ano: "2012...",
+      complemento: "1.8 16V "
+    },
+    {
+      montadora: "Hyundai",
+      modelo: "HB20",
+      ano: "2013...",
+      complemento: "1.6 16V "
+    },
+    {
+      montadora: "Hyundai",
+      modelo: "I30",
+      ano: "2013...",
+      complemento: "1.6 16V "
+    },
+    {
+      montadora: "Hyundai",
+      modelo: "I30",
+      ano: "2014...",
+      complemento: "1.8 16V "
+    },
+    {
+      montadora: "Hyundai",
+      modelo: "Veloster ",
+      ano: "2012...",
+      complemento: "1.6 16V"
+    },
+    {
+      montadora: "Kia",
+      modelo: "Carnival",
+      ano: " 1999...2006",
+      complemento: "2.5 24V V6"
+    },
+    {
+      montadora: "Kia",
+      modelo: "Cerato",
+      ano: " 2009...",
+      complemento: "1.6 16V Motor G4FC"
+    },
+    {
+      montadora: "Kia",
+      modelo: "Soul",
+      ano: "2009...",
+      complemento: "1.6 16V "
+    },
+    {
+      montadora: "Land Rover",
+      modelo: "Freelander",
+      ano: "2003...2006",
+      complemento: "2.5 24V V6 "
+    },
+    {
+      montadora: "Mercedes Benz",
+      modelo: "C43",
+      ano: "1998...2000",
+      complemento: "4.3 24V V8 "
+    },
+    {
+      montadora: "Mercedes Benz",
+      modelo: "C55",
+      ano: "2005...2006",
+      complemento: "5.5 24V V8 "
+    },
+    {
+      montadora: "Mercedes Benz",
+      modelo: "CL500",
+      ano: "1999...2005",
+      complemento: "5.0 24V V8 "
+    },
+    {
+      montadora: "Mercedes Benz",
+      modelo: "CL500",
+      ano: "2006...2011",
+      complemento: "5.5 32V V8"
+    },
+    {
+      montadora: "Mercedes Benz",
+      modelo: "CLK430",
+      ano: "1998...2002",
+      complemento: "4.3 24V V8 "
+    },
+    {
+      montadora: "Mercedes Benz",
+      modelo: "CLK500",
+      ano: " 2003...2008",
+      complemento: "5.0 24V V8"
+    },
+    {
+      montadora: "Mercedes Benz",
+      modelo: "CLK500",
+      ano: "2003...2008",
+      complemento: "5.0 32V V8"
+    },
+    {
+      montadora: "Mercedes Benz",
+      modelo: "CLK55",
+      ano: "2001...2006",
+      complemento: "5.4 24V V8 "
+    },
+    {
+      montadora: "Mercedes Benz",
+      modelo: "CLS500",
+      ano: "2005...2010",
+      complemento: "5.0 24V V8 "
+    },
+    {
+      montadora: "Mercedes Benz",
+      modelo: "CLS55 ",
+      ano: "2005...2006",
+      complemento: "5.5 24V V8 "
+    },
+    {
+      montadora: "Mercedes Benz",
+      modelo: "E430",
+      ano: "1997...2002",
+      complemento: "4.3 32V V8"
+    },
+    {
+      montadora: "Mercedes Benz",
+      modelo: "E500",
+      ano: "2003...2010",
+      complemento: "5.0 24V V8 "
+    },
+    {
+      montadora: "Mercedes Benz",
+      modelo: "E55",
+      ano: " 1998...2006",
+      complemento: "5.4 24V V8"
+    },
+    {
+      montadora: "Mercedes Benz",
+      modelo: "G55 ",
+      ano: " 2009...",
+      complemento: "5.5 32V V8"
+    },
+    {
+      montadora: "Mercedes Benz",
+      modelo: "ML430",
+      ano: "1999...2001",
+      complemento: "4.3 24V V8 "
+    },
+    {
+      montadora: "Mercedes Benz",
+      modelo: "ML55 ",
+      ano: "2000...2005",
+      complemento: "5.4 24V V8 "
+    },
+    {
+      montadora: "Mercedes Benz",
+      modelo: "R500 ",
+      ano: "2006...2008",
+      complemento: "5.0 24V V8 "
+    },
+    {
+      montadora: "Mercedes Benz",
+      modelo: "S500",
+      ano: "1998...2005",
+      complemento: " 5.0 24V V8 "
+    },
+    {
+      montadora: "Mercedes Benz",
+      modelo: "S55",
+      ano: "2001...2005",
+      complemento: "5.4 24V V8 "
+    },
+    {
+      montadora: "Mercedes Benz",
+      modelo: "SL55 ",
+      ano: " 2002...2008",
+      complemento: "5.4 24V V8"
+    },
+    {
+      montadora: "Mercedes Benz",
+      modelo: "SLK55",
+      ano: "2005...2011",
+      complemento: "5.5 24V V8 "
+    },
+  ],
+  referenciasCruzadas: [
+    {marca:"zen",codigos:["13445"]},
+    {marca:"Cobra",codigos:["LH179526"]},
+    {marca:"Dayco",codigos:["APV2596"]},
+    {marca:"Gueparts",codigos:["5090"]},
+    {marca:"Hyundai",codigos:["252862B000","252862B010"]},
+    {marca:"INA",codigos:["532064410"]},
+    {marca:"KIA",codigos:["0K9BV10730A","0K9BV10770","252862B000","252862B010"]},
+    {marca:"Land Rover",codigos:["PQG100141","PQG100141L","PQG100142"]},
+    {marca:"Mercedes Benz",codigos:["1122000670","1122000870","1122000970"]},
+    {marca:"Nytron",codigos:["1202"]},
+    {marca:"Ranalle",codigos:["R4813"]},
+    {marca:"Rolt",codigos:["1648"]},
+    {marca:"Roltens",codigos:["RT3035"]},
+    {marca:"SKF",codigos:["VKM64019"]},
   ],
 },
 /*
