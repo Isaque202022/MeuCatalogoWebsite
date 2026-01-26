@@ -214,7 +214,7 @@ const produtos = [
     descricao: 'PALIO WEEK/STRADA/DOBLO ',
     referencia: '5780',
     marca: 'ATE',
-    arqImagem: '',
+    arqImagem: '2395 - trw - rccr02120.jpg',
     linksExternos: [{url:'',titulo:''}]
   },
   {
