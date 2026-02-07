@@ -1,5 +1,12 @@
 const produtos = [
   {
+    descricao: 'CRUZE/BLAZER/S10 ',
+    referencia: 'UF1148/4',
+    marca: 'unifap',
+    arqImagem: 'unifap1148.jpg',
+    linksExternos: [{url:'',titulo:''}],
+  },
+  {
     descricao: 'COMPASS/RENEGADE/TORO DIESEL',
     referencia: 'A226',
     marca: 'SULCARBON',
