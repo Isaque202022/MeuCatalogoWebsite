@@ -1691,6 +1691,23 @@ const produtos = [
     },
   ],
 },
+  {
+  referencia: "680537",
+  marca: "VIEMAR",
+  tamanho: 19,
+  cabeca: "MACHO",
+  diametroPonteira: 14,
+  roscaPonteira: "FINA",
+  diametroFuroCaixa: 20,
+  roscaCaixa: "FINA",
+  aplicacoes: [
+    {
+      montadora: 'HONDA',
+      modelo: 'CIVIC',
+      complemento: '2012/2016 direcao eletrica'
+    },
+  ],
+},
 
 /*
 {
