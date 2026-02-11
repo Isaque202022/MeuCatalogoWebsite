@@ -12237,7 +12237,7 @@ polia 6pk 76ext-22alt
 
   marca: 'nytron',
   referencia: '7822',
-  imagens: ['nytron-7782-1.png','nytron-7822-2.png'],
+  imagens: ['nytron-7822.jpg'],
 
   descricao: 'palio/strada fire',
   aplicacoes: [
