@@ -1,5 +1,12 @@
 let produtos = [
   {
+    cambioDirecao: 'CAMBIO',
+    descricao: 'KIT ALAVANCA CAMBIO STRADA 08/13',
+    referencia: 'DR490911',
+    marca: '',
+    arqImagem: 'dr-490911.jpeg',
+  },
+  {
     cambioDirecao: 'DIRECAO',
     descricao: 'BUCHA CX DIREÇÃO PALIO ',
     referencia: '10120',
