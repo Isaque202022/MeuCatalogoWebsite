@@ -1,4 +1,21 @@
 const produtos = [
+  {
+  referencia: "680646",
+  marca: "VIEMAR",
+  tamanho: 31.5,
+  cabeca: "MACHO",
+  diametroPonteira: 16,
+  roscaPonteira: "FINA",
+  diametroFuroCaixa: 14,
+  roscaCaixa: "FINA",
+  aplicacoes: [
+    {
+      montadora: 'toyota',
+      modelo: 'Hilux pickup/SW4',
+      complemento: '16/26'
+    },
+  ],
+},
 {
   referencia: "680375",
   marca: "VIEMAR",
