@@ -6438,7 +6438,7 @@ const produtos = [
   ],
 },
 {
-  externo: 76,
+  externo: 70,
   interno: 17,
   altura: 25,
   correia: ['alternador','polia'],
