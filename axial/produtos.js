@@ -1,5 +1,32 @@
 const produtos = [
   {
+  referencia: "680241",
+  marca: "VIEMAR",
+  tamanho: 32,
+  cabeca: "MACHO",
+  diametroPonteira: 14,
+  roscaPonteira: "GROSSA",
+  diametroFuroCaixa: 14,
+  roscaCaixa: "FINA",
+  aplicacoes: [
+    {
+      montadora: 'ford',
+      modelo: 'Courier',
+      complemento: '97/13 direc hidraulica'
+    },
+    {
+      montadora: 'ford',
+      modelo: 'Fiesta',
+      complemento: '96/07 direc hidraulica'
+    },
+    {
+      montadora: 'ford',
+      modelo: 'Fiesta',
+      complemento: 'Sedan 02/04 direc hidraulica'
+    },
+  ],
+},
+  {
   referencia: "680646",
   marca: "VIEMAR",
   tamanho: 31.5,
