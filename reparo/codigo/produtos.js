@@ -1,6 +1,6 @@
 let produtos = [
   {
-    cambioDirecao: 'CAMBIO',
+    cambioDirecao: 'DIRECAO',
     descricao: 'KIT MANCAIS CX DIRECAO CORSA/CELTA/PRISMA DIREC.MEC.',
     referencia: '30597',
     marca: 'KIT & CIA',
