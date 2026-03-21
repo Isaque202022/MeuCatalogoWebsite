@@ -1,6 +1,13 @@
 let produtos = [
   {
     cambioDirecao: 'CAMBIO',
+    descricao: 'KIT MANCAIS CX DIRECAO CORSA/CELTA/PRISMA DIREC.MEC.',
+    referencia: '30597',
+    marca: 'KIT & CIA',
+    arqImagem: 'kitcia-30597.jpg',
+  },
+  {
+    cambioDirecao: 'CAMBIO',
     descricao: 'KIT ALAVANCA CAMBIO STRADA 08/13',
     referencia: 'DR490911',
     marca: '',
