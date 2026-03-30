@@ -5378,6 +5378,7 @@ const produtos = [
   ],
   referenciasCruzadas: [
     {marca:"roltens",codigos:["rt6537"]},
+    {marca:"skf",codigos:["VKM43012"]},
     {marca:"original",codigos:["51856150"]},
   ],
 },
@@ -12237,7 +12238,7 @@ polia 6pk 76ext-22alt
 
   marca: 'nytron',
   referencia: '7822',
-  imagens: ['nytron-7822.jpg'],
+  imagens: ['nytron-7782-1.png','nytron-7822-2.png'],
 
   descricao: 'palio/strada fire',
   aplicacoes: [
@@ -12356,25 +12357,94 @@ polia 6pk 76ext-22alt
   externo: 65,
   interno: 0,
   altura: 24,
-  correia: ['alternador','polia'],
+  correia: ['alternador','tensor'],
   parede: ['liso','sem-aba1'],
   material: ['metal','plastico'],
 
   marca: 'zen',
   referencia: '13512',
-  imagens: [''],
+  imagens: ['zen-13512-1.png','zen-13512-2.png'],
 
   descricao: 'ECOSPORT/FOCUS/TRANSIT 11/',
   aplicacoes: [
-    {
-      montadora: '',
-      modelo: '',
-      ano: '',
-      complemento: '',
-    },
+{
+  montadora: "Ford",
+  modelo: "B-MAX",
+  ano: "2012/...",
+  complemento: "1.0, EcoBoost "
+},
+{
+  montadora: "Ford",
+  modelo: "C-MAX",
+  ano: "2010/...",
+  complemento: "1.0"
+},
+{
+  montadora: "Ford",
+  modelo: "EcoSport",
+  ano: "2011/...",
+  complemento: "1.0, EcoBoost"
+},
+{
+  montadora: "Ford",
+  modelo: "Fiesta",
+  ano: "2016/...",
+  complemento: "1.0, 12V, Ecoboost "
+},
+{
+  montadora: "Ford",
+  modelo: "Focus",
+  ano: "2010/...",
+  complemento: "1.0, EcoBoost"
+},
+{
+  montadora: "Ford",
+  modelo: "Grand C-Max",
+  ano: "2010/... ",
+  complemento: ""
+},
+{
+  montadora: "Ford",
+  modelo: "Ka+ ",
+  ano: "2015/...",
+  complemento: "1.0, 12V"
+},
+{
+  montadora: "Ford",
+  modelo: "Mondeo",
+  ano: "2012/...",
+  complemento: "1.0, EcoBoost"
+},
+{
+  montadora: "Ford",
+  modelo: "Mondeo",
+  ano: "2014/...",
+  complemento: "1.0, V"
+},
+{
+  montadora: "Ford",
+  modelo: "Tourneo Connect / Grand",
+  ano: "2013/...",
+  complemento: "1.0, EcoBoost"
+},
+{
+  montadora: "Ford",
+  modelo: "Transit",
+  ano: "2013/...",
+  complemento: "1.0, EcoBoost"
+},
   ],
   referenciasCruzadas: [
     {marca:"zen",codigos:["13512"]},
+    {marca:"Cobra",codigos:["5221"]},
+    {marca:"Dayco",codigos:["APV3170"]},
+    {marca:"Ford",codigos:["1761930","CM5Q6A228BA"]},
+    {marca:"Gates",codigos:["T39295"]},
+    {marca:"INA",codigos:["534050710"]},
+    {marca:"Ranalle",codigos:["R4230"]},
+    {marca:"Rolt",codigos:["2334"]},
+    {marca:"Roltens",codigos:["RT3040"]},
+    {marca:"SKF",codigos:["VKM34119"]},
   ],
 },
 {
@@ -13107,6 +13177,46 @@ polia 6pk 76ext-22alt
     {marca:"Rolt",codigos:["1648"]},
     {marca:"Roltens",codigos:["RT3035"]},
     {marca:"SKF",codigos:["VKM64019"]},
+  ],
+},
+{
+  externo: 63.4,
+  interno: 0,
+  altura: 23,
+  correia: ['alternador','polia'],
+  parede: ['6pk'],
+  material: ['plastico'],
+
+  marca: 'SKF',
+  referencia: 'VKM43012',
+  imagens: ['skf-VKM43012-1.png','skf-VKM43012-2.png','skf-VKM43012-3.png'],
+
+  descricao: 'COMPASS/TORO DIESEL',
+  aplicacoes: [
+    {
+      montadora: 'Fiat',
+      modelo: 'Toro',
+      ano: '2016 >',
+      complemento: '2.0 16v',
+    },
+    {
+      montadora: 'Jeep',
+      modelo: 'Compass',
+      ano: '2016 >',
+      complemento: '2.0 16v',
+    },
+    {
+      montadora: 'Jeep',
+      modelo: 'Renegade',
+      ano: '2016 >',
+      complemento: '2.0 16v',
+    },
+  ],
+  referenciasCruzadas: [
+    {marca:"skf",codigos:["VKM43012"]},
+    {marca:"roltens",codigos:["rt6537"]},
+    {marca:"Fiat",codigos:["51856150",'55227513']},
+    {marca:"Jeep",codigos:["51856150"]},
   ],
 },
 /*
