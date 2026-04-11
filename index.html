@@ -1,180 +1,342 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu - Meu catalogo</title>
-    <!-- google fonts: Roboto -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <style>
-        *{
-            font-family: Roboto;
-        }
-        h1 {
-            text-align: center;
-            padding: 0;
-            margin: 0;
-        }
-        .display {
-            padding: 20px;
-            display: grid;
-            grid-template-columns: repeat(5, 1fr); /* 3 itens por linha */
-            gap: 10px;
-        }
-        a {
-            max-width: 300px;
-            text-decoration: none;
-            color: inherit;
-        }
-        .item{
-            box-shadow: 1px 1px 4px  rgba(0, 0, 0, 0.459);
-            /*border: 1px solid black;*/
-            width: 200px;
-            transition: transform 0.2s;
-            cursor: pointer;
-            margin: 10px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .item:hover {
-            transform: scale(1.1)
-        }
-        img{
-            width: 100%;
-            height: 200px;
-            object-fit: contain;
-        }
-        h3 {
-            text-align: center;
-            height: 100%;
-        }
-        .titulo-item {
-            display: flex;
-            justify-content: center;
-            align-items: end;
-        }
-        label {
-            display: flex;
-            justify-content: center;
-        }
-        .esconder {
-            display: none;
-        }
-    </style>
-    <link rel="icon" href="icone-pagina.png" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sensor arrefecimento</title>
+  <link rel="stylesheet" href="style/style.css">
+  <link rel="stylesheet" href="style/ampliar-midia.css">
+  <link rel="icon" href="imagens/pagina/icone-agua-guia-pagina.png">
 </head>
 <body>
-    <h1>Menu catálogos</h1>
-    <label for=""><input type="text" class="pesquisa" style="display: none;"></label>
-    <div class="display">
-        <div class="item">
-            <a href="palhetas parabrisa/index.html">
-                <img src="imagens/palheta-parabrisa.jpg" alt="">
-                <div class="titulo-item"><h3>PALHETAS DE PARABRISA</h3></div>
-            </a>
-        </div>
-        <div class="item">
-            <a href="homocineticas e deslizantes/codigo/index.html">
-                <img src="imagens/homocineticas-deslizantes.png" alt="">
-                <div class="titulo-item"><h3>HOMOCINÉTICAS E DESLIZANTES</h3></div>
-            </a>
-        </div>
-        <div class="item">
-            <a href="cilindro roda/codigo/index.html">
-                <img src="imagens/cilindro de roda.png" alt="">
-                <div class="titulo-item"><h3>CILINDRO DE RODA</h3></div>
-            </a>
-        </div>
-        <div class="item">
-            <a href="impulsor de partida/codigo/index.html">
-                <img src="imagens/impulsor de partida.png" alt="">
-                <div class="titulo-item"><h3>IMPULSOR DE PARTIDA</h3></div>
-            </a>
-        </div>
-        <div class="item">
-            <a href="porta-escova/codigo/index.html">
-                <img src="imagens/porta-escova.jpeg" alt="">
-                <div class="titulo-item"><h3>PORTA-ESCOVA</h3></div>
-            </a>
-        </div>
-        <div class="item">
-            <a href="sensor de arrefecimento/codigo/index.html">
-                <img src="imagens/sensor arrefecimento.png" alt="">
-                <div class="titulo-item"><h3>SENSOR ARREFECIMENTO</h3></div>
-            </a>
-        </div>
-        <div class="item">
-            <a href="atuador embreagem/codigo/index.html">
-                <img src="imagens/atuador.jpg" alt="">
-                <div class="titulo-item"><h3>ATUADOR DE EMBREAGEM</h3></div>
-            </a>
-        </div>
-        <div class="item">
-            <a href="polias e tensores/index.html">
-                <img src="imagens/polia.png" alt="">
-                <div class="titulo-item"><h3>POLIAS E TENSORES</h3></div>
-            </a>
-        </div>
-        <div class="item">
-            <a href="retentor/codigo/index.html">
-                <img src="imagens/retentor.jpg" alt="">
-                <div class="titulo-item"><h3>RETENTOR</h3></div>
-            </a>
-        </div>
-        <div class="item">
-            <a href="rolamento/codigo/index.html">
-                <img src="imagens/rolamento.jpg" alt="">
-                <div class="titulo-item"><h3>ROLAMENTO</h3></div>
-            </a>
-        </div>
-        <div class="item">
-            <a href="reparo/codigo/index.html">
-                <img src="imagens/reparo.jpg" alt="">
-                <div class="titulo-item"><h3>REPARO</h3></div>
-            </a>
-        </div>
-        <div class="item">
-            <a href="termostatica/codigo/index.html">
-                <img src="imagens/termostatica.jpg" alt="">
-                <div class="titulo-item"><h3>VALVULA TERMOSTATICA</h3></div>
-            </a>
-        </div>
-        <div class="item">
-            <a href="axial/index.html">
-                <img src="imagens/axial.webp" alt="">
-                <div class="titulo-item"><h3>AXIAL</h3></div>
-            </a>
-        </div>
-        <div class="item">
-            <a href="pivo/index.html">
-                <img src="imagens/pivo.png" alt="">
-                <div class="titulo-item"><h3>PIVÔ</h3></div>
-            </a>
-        </div>
+  <div class="body">
+    <div class="cabecalho">
+      <button onclick="toggleModalFiltrar()">
+        <span>FILTROS</span> 
+        <img class="icone-filtrar-img" src="imagens/pagina/icone-filtrar.png">
+        <span style="font-size: 0.8em; align-self: flex-end;" id="contagem-filtros">
+          0
+        </span>
+      </button>
+      <button onclick="toggleProdutosFixados(this)">
+        <span>MOSTRAR APENAS ITENS FIXADOS</span>
+        <img src="imagens/pagina/icone-fixar-vermelho.png">
+      </button>
+      <h2 id="titulo-cabecalho">
+        <img src="imagens/pagina/sensor.png" alt="">
+        <span style="color: rgb(238, 250, 206);">SENSOR DE ARREFECIMENTO</span>
+      </h2>
     </div>
 
-    <script>
-        const titulos = document.querySelectorAll('h3')
-        const input = document.querySelector('input')
-        input.focus()
-        input.addEventListener('keyup', (event)=>{
-            const texto = event.target.value
-            titulos.forEach(titulo => {
-                if (!titulo.textContent.toLowerCase().includes(texto.toLowerCase())){
-                    titulo.parentElement.parentElement.parentElement.classList.add('esconder')
-                } else {
-                    titulo.parentElement.parentElement.parentElement.classList.remove('esconder')
-                }
-            })
-        })
+    <div class="content-sidebar-container">
+      <div class="content">
+        <div class="table-container" tabindex="0">
+          <table id="table-produtos">
+            <thead>
+              <th class="fixar-th"><img style="width: 22px;" src="imagens/pagina/icone-fixar-branco.png" class=""></th>
+              <th class="marca-th">
+                <span>Marca</span> 
+                <img src="imagens/pagina/icone-triangulo-ordenar.png" id="triangulo-ordenar-marca" class="triangulo-ordenar esconder">
+              </th>
+              <th class="ref-th">
+                <span>Referência</span> 
+                <img src="imagens/pagina/icone-triangulo-ordenar.png" id="triangulo-ordenar-ref" class="triangulo-ordenar esconder">
+              </th>
+              <th class="desc-th">
+                <span>Descrição</span> 
+                <img src="imagens/pagina/icone-triangulo-ordenar.png" id="triangulo-ordenar-desc" class="triangulo-ordenar">
+              </th>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="aplicacoes">
+          <div class="conversoes">
+            <div>
+              <div class="titulo">Conversões</div>
+              <div class="lista"></div>
+            </div>
+          </div>
+          <div class="carros">
+            <div>
+              <h2>Aplicações</h2>
+              <div class="aplic-carros-tb-container">
+                <table>
+                  <thead>
+                    <th id="carro-th-aplic">CARRO</th>
+                    <th id="motor-th-aplic">MOTOR</th>
+                    <th id="ano-th-aplic">ANO</th>
+                    <th id="comp-th-aplic">COMPLEMENTO</th>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sidebar">
+        <div class="display-container">
+          <div class="img-container" onclick="abrirMidia(this)"></div>
+          <div class="menu-imgs">
+            <div class="seta-menu" onclick="mudarImg(indiceImgSelecionada-1)">
+              <img src="imagens/pagina/seta-esquerda.png" alt="Voltar uma imagem"></div>
+            <div class="indicador">
+              <span id="indicador-img-atual"></span> /
+              <span id="length-lista-imgs"></span>
+            </div>
+            <div class="seta-menu" onclick="mudarImg(indiceImgSelecionada+1)">
+              <img src="imagens/pagina/seta-direita.png" alt="Próxima imagem"></div>
+          </div>
+        </div>
+        <div class="informacoes">
+          <!-- <div class="marca-ref">
+            <span class="titulo">PROD.:</span><span class="valor-aqui"></span>
+          </div> -->
+          <div class="obs">
+            <span class="titulo">OBS.:</span><span class="valor-aqui"></span>
+          </div>
+          <div class="conteudo-emb">
+            <span class="titulo">CONTEÚDO EMBALAGEM:</span><span class="valor-aqui"></span>
+          </div>
+          <div class="propriedades">
+            <span class="titulo">PROPRIEDADES:</span><span class="valor-aqui"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-        window.addEventListener("pageshow", function () {
-            input.value = "";
-        });
-        // pageshow garante que mesmo quando o usuário volta pelo histórico (botão voltar), o campo seja limpo.
-    </script>
+  <!-- MODAL PARA AMPLIAR IMAGEM E VIDEO FEITO PELO CHATGPT -->
+  <div id="viewer" class="viewer">
+    <div class="viewer-content">
+      <button class="fechar" onclick="fecharViewer()">✕</button>
+      <div class="viewer-midia"></div>
+      <div class="viewer-controles">
+        <button onclick="zoom-=0.2; atualizarTransform()">−</button>
+        <button onclick="zoom=1; posX=0; posY=0; atualizarTransform()">⟳</button>
+        <button onclick="zoom+=0.2; atualizarTransform()">+</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-midia esconder" >
+    <div class="container">
+      <div class="titulo">
+        <p>SPAAL 10047</p>
+        <p id="btn-exit" onclick="toggleModalMidia()">❌</p>
+      </div>
+      <div class="tela"></div>
+      <div class="menu-imgs"></div>
+    </div>
+  </div>
+
+  <div class="modal-filtrar esconder">
+    <div class="container">
+      <div class="titulo">
+        <h4>FILTRAR (<span id="total-itens-visiveis">#</span>)</h4>
+        <p class="btn-exit" onclick="toggleModalFiltrar()">❌</p>
+      </div>
+      <div class="campos-container">
+        <table>
+          <tr>
+            <td colspan='3'>GERAL</td>
+          </tr>
+          <tr class="tr-desc">
+            <td>Descrição</td>
+            <td>
+              <input id="campo-descricao1">
+              <input id="campo-descricao2">
+            </td>
+            <td>
+              <img 
+                class="invisivel resetar-campo"
+                style="width: 27px; cursor: pointer;" 
+                src="imagens/pagina/icone-limpar.png" 
+                title="resetar campo" 
+                onclick="
+                  document.getElementById('campo-descricao1').value = ''; 
+                  document.getElementById('campo-descricao2').value = '';
+                  document.getElementById('campo-descricao1').focus();
+                  filtros.descricao[0] = '';
+                  filtros.descricao[1] = '';
+                  filtrarProdutos();
+                  this.classList.add('invisivel')
+                "
+              >
+            </td>
+          </tr>
+          <!-- <tr class="tr-ref">
+            <td>Referência</td>
+            <td><input id="campo-referencia"></td>
+            <td><img style="width: 27px; cursor: pointer;" src="imagens/pagina/icone-limpar.png" title="resetar campo"></td>
+          </tr> -->
+          <tr class="tr-ref">
+            <td>Código</td>
+            <td><input id="campo-cod-cruzado"></td>
+            <td>
+              <img 
+                class="invisivel resetar-campo"
+                style="width: 27px; cursor: pointer;" 
+                src="imagens/pagina/icone-limpar.png" 
+                title="resetar campo"
+                onclick="
+                  document.getElementById('campo-cod-cruzado').value = '';
+                  document.getElementById('campo-cod-cruzado').focus();
+                  filtros.codCruzado = '';
+                  filtrarProdutos();
+                  this.classList.add('invisivel')
+                "
+              >
+            </td>
+          </tr>
+          <tr class="tr-marca">
+            <td>Marca</td>
+            <td>
+              <select id="select-marca"></select>
+              <div class="marca-selecionadas lista-selecionados"></div>
+            </td>
+            <td>
+              <img 
+                class="invisivel resetar-campo"
+                style="width: 27px; cursor: pointer;" 
+                src="imagens/pagina/icone-limpar.png" 
+                title="resetar campo"
+                onclick="
+                  excluirTodasAsMarcas()
+                  filtrarProdutos()
+                "
+              >
+            </td>
+          </tr>
+          <tr>
+            <td colspan='3'>PROPRIEDADES</td>
+          </tr>
+          <tr>
+            <td>Encaixe</td>
+            <td>
+              <select id="select-encaixe"></select>
+            </td>
+            <td>
+              <img 
+                class="invisivel resetar-campo"
+                style="width: 27px; cursor: pointer;" 
+                src="imagens/pagina/icone-limpar.png" 
+                title="resetar campo"
+                onclick="
+                  document.getElementById('select-encaixe').selectedIndex = 0;
+                  filtros.propriedades.quantTerminais = 0;
+                  filtrarProdutos()
+                  this.classList.add('invisivel')
+                "
+              >
+            </td>
+          </tr>
+          <tr>
+            <td colspan='3'>APLICAÇÃO POR CARRO</td>
+          </tr>
+          <tr>
+            <td>Montadora</td>
+            <td>
+              
+              <div class="handcraft-container">
+                <div class="select-montadora-handcraft select-hand">
+                  <input class="input-handcraft" id="input-montadora" placeholder="Pesquisar..." onkeyup="renderizarMontadoras()">  
+                  <div class="drop"></div>
+                </div>
+                <div class="montadoras-selecionadas lista-selecionados"></div>
+              </div>
+            </td>
+            <td>
+              <img 
+                class="invisivel resetar-campo"
+                style="width: 27px; cursor: pointer;" 
+                src="imagens/pagina/icone-limpar.png" 
+                title="resetar campo"
+                onclick="
+                  if (filtros.aplicacao.montadoras[0]){
+                    excluirMontadora(filtros.aplicacao.montadoras[0]);
+                    carregarListaVeiculos();
+                    renderizarVeiculos();
+                    filtrarProdutos()
+                    inputMontadoraHandcraft.focus()
+                  }
+                "
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>Veículo</td>
+            <td>
+              <div class="handcraft-container">
+                <div class="select-veiculo-handcraft select-hand">
+                  <input class="input-handcraft" id="input-veiculo" placeholder="Pesquisar..." onkeyup="renderizarVeiculos()">  
+                  <div class="drop"></div>
+                </div>
+                <div class="veiculos-selecionados lista-selecionados"></div>
+              </div>
+            </td>
+            <td>
+              <img 
+                class="invisivel resetar-campo"
+                style="width: 27px; cursor: pointer;" 
+                src="imagens/pagina/icone-limpar.png" 
+                title="resetar campo"
+                onclick="
+                  if (filtros.aplicacao.veiculos[0]){
+                    excluirVeiculo(filtros.aplicacao.veiculos[0])
+                    filtrarProdutos()
+                    inputVeiculoHandcraft.focus()
+                  }
+                "
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>Ano</td>
+            <td class="layout-td-ano">
+              <div id="aviso-ano"></div>
+              <div class="campos">
+                <select id="select-ano-veiculo" disabled>
+                  <option value="">Todos</option>
+                </select>
+              </div>
+            </td>
+            <td>
+              <img 
+                class="invisivel resetar-campo"
+                style="width: 27px; cursor: pointer;" 
+                src="imagens/pagina/icone-limpar.png" 
+                title="resetar campo"
+                onclick="
+                  if (!document.getElementById('select-ano-veiculo').disabled){
+                    document.getElementById('select-ano-veiculo').selectedIndex = 0
+                    filtros.aplicacao.ano = ''
+                    filtrarProdutos()
+                    this.classList.add('invisivel')
+                  }
+                "
+              >
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3" id="td-limpar-todos-filtros">
+              <button onclick="limparTodosOsFiltros()">Limpar todos os filtros</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="produtos/produtos.js"></script>
+  <script src="script/declarar-variaveis.js"></script>
+  
+  <script src="script/funcoes-gerais.js"></script>
+  <script src="script/filtrar.js"></script>
+  
+  <script src="script/index.js"></script>
+  <script src="script/ampliar-midia.js"></script>
+  <script src="script/select-prod-setas.js"></script>
 </body>
 </html>
